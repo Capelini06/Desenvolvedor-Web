@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Inserindo Imagens - html e CSS</title>
+</head>
+<body>
+    <h1>Trabalhando com Imagens em HTML e CSS</h1>
+    <p>Nesta atividade aprenderemos como inserir imagens utilizando HTML e como modificar sua aparência utilizando diferentes propriedades CSS.</p>
+    <hr>
+
+    <h2>1. Inserindo uma imagem</h2>
+    <p>Para inserir uma imagem em HTML utilizamos a tag <strong>&lt;img&gt;</strong>.</p>
+    <img src="image/catedral_centro_sjp.png" alt="Uma perspectiva aérea privilegiada da imponente Catedral de São José dos Pinhais, revelando sua beleza arquitetônica em perfeita harmonia com a paisagem urbana do coração da cidade.">
+    <p>A propriedade <strong>src</strong> informa onde está o arquivo da imagem, enquanto <strong>alt</strong> fornece uma descrição do conteúdo</p>
+    <hr>
+
+    <h2>2. Comparando formatos de imagem</h2>
+    <p>Uma mesma imagem pode ser salva em diferentes formatos. Mesmo mantendo a mesma resolução, o tamanho do arquivo pode mudar bastante.</p>
+    <p>Abaixo utilizamos a mesma imagem da academia, com resolução <b>1920x1080</b>, salva em quatro formatos diferentes.</p>
+
+     <h3>Formato AVIF</h3>
+    <img src="image/atividade/academia_senac.avif" alt="Imagem da academia Senac São José dos pinhais em formato AVIF">
+    <p>Resolução: 1920x1080<br>
+    Tamanho do arquivo: 192.74 KB</p>
+
+    <h3>Formato JPG</h3>
+    <img src="image/atividade/academia_senac.jpg" alt="Imagem da academia Senac São José dos pinhais em formato JPG">
+    <p>Resolução: 1920x1080<br>
+    Tamanho do arquivo: 338.29 KB</p>
+
+    <h3>Formato PNG</h3>
+    <img src="image/atividade/academia_senac.png" alt="Imagem da academia Senac São José dos pinhais em formato PNG">
+    <p>Resolução: 1920x1080<br>
+    Tamanho do arquivo: 866.47 KB</p>
+
+    <h3>Formato WEBP</h3>
+    <img src="image/atividade/academia_senac.webp" alt="Imagem da academia Senac São José dos pinhais em formato WEBP">
+    <p>Resolução: 1920x1080<br>
+    Tamanho do arquivo: 247.56 KB</p>
+
+    <p><b>Observe:</b> todas as imagens possuem a mesma resolução, porém o tamanho dos arquivos é diferente. Isso acontece porque cada formato utiliza características e técnicas diferentes para armazenar e comprimir a imagem.</p>
+    <p>Quanto menor o arquivo, menor tende a ser a quantidade de dados que o navegador precisa carregar. Por isso, escolher corretamente o formato de imagem também pode ajudar no desempenho de um site.</p>
+    <br>
+
+    <h2>3. Alterando o tamanho da imagem</h2>
+    <p>Podemos controlar o tamanho das imagens através da propriedade <strong>width</strong>.</p>
+
+    <h3>Imagem pequena</h3>
+    <img src="image/atividade/academia_senac.webp" class="imagem-pequena" alt="Imagem da academia Senac no tamanho pequeno">
+
+    <h3>Imagem média</h3>
+    <img src="image/atividade/academia_senac.webp" class="imagem-media" alt="Imagem da academia Senac no tamanho medio">
+
+    <h3>Imagem grande</h3>
+    <img src="image/atividade/academia_senac.webp" class="imagem-grande" alt="Imagem da academia Senac no tamanho grande">
+    <br>
+
+    <h2>4. Trabalhando com bordas</h2>
+    <p>O CSS permite adicionar diferentes tipos de borda às imagens.</p>
+
+    <h3>Borda simples</h3>
+    <img src="image/atividade/aerea_sesc.webp" class="borda-simples" alt="Area do colegio Senac sjp">
+
+    <h3>Borda arredondada</h3>
+    <img src="image/atividade/aerea_sesc.webp" class="borda-arredondada" alt="Area do colegio Senac sjp">
+
+    <h3>Imagem circular</h3>
+    <img src="image/atividade/aerea_sesc.webp" class="borda-circular" alt="Area do colegio Senac sjp">
+    <hr>
+
+    <h2>5. Espaçamento e sombra</h2>
+    <p>Podemos utilizar <strong>padding</strong> para criar um espaço interno e <strong>box-shadow</strong> para adicionar uma sombra.</p>
+
+    <h2>Imagem com espaçamento</h2>
+    <img src="image/atividade/construcao_senac.webp" class="imagem-com-espacamento" alt="Construção em são josé dos pinhais">
+
+    <h2>Imagem com sombra</h2>
+    <img src="image/atividade/construcao_senac.webp" class="imagem-com-sombra" alt="Construção em são josé dos pinhais">
+    <hr>
+
+    <h2>6. Opacidade e filtros</h2>
+    <p>Também podemos modificar visualmente uma imagem utilizando propriedades como <strong>opacity</strong> e <strong>filter</strong>.</p>
+
+    <h3>Imagem com transparência</h3>
+    <img src="image/atividade/estacionamento_senac.webp" class="imagem-transparente" alt="Imagem do estacionamento do Senac sjp">
+
+    <h3>Imagem em escala de cinza</h3>
+    <img src="image/atividade/estacionamento_senac.webp" class="imagem-cinza" alt="Imagem do estacionamento do Senac sjp">
+
+    <h3>Imagem com brilho</h3>
+    <img src="image/atividade/estacionamento_senac.webp" class="imagem-brilho" alt="Imagem do estacionamento do Senac sjp">
+    
+    <h3>Imagem com desfoque</h3>
+    <img src="image/atividade/estacionamento_senac.webp" class="imagem-desfocada" alt="Imagem do estacionamento do Senac sjp">
+    <hr>
+
+    <h2>7. Trabalhando com <strong>object-fit</strong></h2>
+    <p>A propriedade object-fit controla como a imagem será ajustada quando definimos largura e altura.</p>
+
+    <img src="image/atividade/fachada_senac.webp" class="imagem-cortada" alt="Fachada da faculdade Senac sjp">
+    <hr>
+
+    <h2>8. Combinando diferentes propriedades</h2>
+    <p>Também podemos combinar várias propriedades para criar uma apresentação mais completa.</p>
+
+    <img src="image/atividade/fachada_senac.webp" class="imagem-destaque" alt="Fachada da faculdade Senac sjp">
+    <hr>
+
+    <h2>Comparando formatos de imagem</h2>
+    <p>Durante esta atividade também utilizaremos arquivos nos formatos AVIF, JPG, PNG e WEBP.</p>
+    <p>Mesmo quando possuem a mesma resolução, os arquivos podem apresentar tamanhos diferentes.</p>
+    <p>Essa comparação permite entender que a escolha do formato também influencia o desempenho de um site.</p>
+    <hr>
+
+    <h2>Desafio</h2>
+        <p><strong>1.</strong>Escolha um dos grupos de imagens disponíveis na pasta "atividade".</p>
+        <p><strong>2.</strong>Identifique a resolução de cada arquivo.</p>
+        <p><strong>3.</strong>Compare os tamanhos de AVIF, JPG, PNG e WEBP.</p>
+        <p><strong>4.</strong>Descubra qual formato possui o menor arquivo.</p>
+        <p><strong>5.</strong>Descubra qual possui o maior arquivo.</p>
+        <p><strong>6.</strong>Calcule aproximadamente quanto maior é o maior arquivo em relação ao menor.</p>
+        <p><strong>7.</strong>Explique qual formato você escolheria para utilizar em um site e por quê.</p>
+</body>
+
+</html>

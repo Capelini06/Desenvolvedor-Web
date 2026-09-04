@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <!-- 
+    Configuração do documento HTML
+
+    <head></head>:
+    Armazena configurações e alterações da página que não aparecem diretamente no conteudo exibido pelo navegador.
+
+    <meta charset="UTF-8">:
+    Define a codificação de caracteres utilizada na pagina.
+    O UTF-8 permite a utilização correta de acentos, cedilha e outros caracteres.
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">:
+    Ajuda o navegador a adaptar corretamente a pagina para diferentes tamanhos de tela, principalmente celular e tablets.
+
+    <title>Aula 02</title>:
+    Define o nome da pagina exibido na aba do navegador.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guilherme Capelini - Curriculo</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="imagens/favicon.webp">
+    <style>
+        hr {
+                border: none;
+                height: 2px;
+                background-color: #3cff00;
+        }
+    </style>
+</head>
+
+<body style="background-color: #000000; 
+            color: #3cff00; 
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.125rem;
+            line-height: 1.5;">
+
+    <h1 class="texto-colorido">Meu Curriculo - Guilherme Capelini</h1>
+    <!-- Representa o titulo principal do site. -->
+
+    <p><b>Estudante de tecnologia</b> - desenvolvedor web wm formação</p>
+    <!-- <p></p>: Cria um paragrafo.
+    <b></b> ou <strong></strong>: Deixa o texto em negrito, indicando uma certa importancia. -->
+
+    <p style="text-decoration-line: underline; text-decoration-style: wavy;">
+        São josé dos pinhais - Paraná<br>
+        Telefone: (41) 99109-1242<br>
+        E-mail: <a href="mailto: Guilherme.gcks@gmail.com">Guilherme.gcks@gmail.com</a><br>
+        Github: <a href="https://github.com/Capelini06" target="_blank">github.com/Capelini06</a>
+        <!-- <br>: Adiciona uma quebra de linha.
+        <a href=""></a>: Funciona como uma ancora, ao clicar na palavra dentro a pagina é redirecionada para o que estiver dentro do href.
+        mailto: Redireciona para o aplicativo de E-mail.
+        target="_blank": Quando clica no link abre uma nova pagina em uma nova guia. -->
+    </p>
+    <hr>
+
+    <!-- Cria um titulo principal da sessão(menor prioridade doque o h1) -->
+    <h2 style="text-decoration: underline dashed;">Objetivos Profissional</h2>
+    <p>
+        Busco minha prmieira opurtunidade de emprego na area de <b>tecnologia da informação</b>, onde possa
+        desenvolvermeus conhecimentos, em programação e contribuir com a equipe, enquanto continuo evoluindo
+        profissionalmente.
+    </p>
+    <hr>
+
+    <h2 style="text-decoration: line-through double;">Sobre Mim</h2>
+    <p>
+        <!-- Lorem cria textos aleatorios. -->
+        Sou estudante de <abbr title="Analise e desenvolvimento de sistemas">ADS </abbr> e desenvolvedor em formação.
+        Tenho interesse no desenvolvimento em java, inteligencia artificial, banco de dados e design de sites.
+    </p>
+
+
+    <p>
+        <!-- <abbr title=""></abbr>: Representa uma abreviação ou sigla. -->
+        Atualmente estou estudando:
+    <ul style="list-style: armenian;">
+        <li>
+            <abbr title="HyperText Markup Language">HTML,</abbr>
+            <abbr title="Cascading style sheets"> CSS</abbr>
+            e Javascript
+        </li>
+        <li>
+            PHP
+        </li>
+        <li>
+            MySQL
+        </li>
+        <li>
+            Flutterflow
+        </li>
+        <li>
+            Metodologiais ageis
+        </li>
+    </ul>
+
+    </p>
+
+    <p>
+        <!-- <mark></mark>: Deixa a palavra marcada como um marca-textos. -->
+        Meu objetivo é me tornar um
+        <mark style="border: 5px solid #9a02ff; background-color: #3cff00; color: #000000;">desenvolvedor web</mark>
+        e participar da criação de projetos
+        que resolvem problemas reais
+    </p>
+
+    <hr>
+
+    <h2 style="text-decoration: overline wavy;">Habilidades e Competências</h2>
+    <!-- <dl></dl>: Cria uma lista de termo e de sua descrição.
+    <dt></dt>: Cria o termo(Titulo).
+    <dd></dd>: Cria a descrição do termo/titulo -->
+    <dl style="border: 10px double;
+              border-radius: 20px;">
+        <dt>
+            <b>Resulução de problemas</b>
+        </dt>
+        <dd>
+            Procuro analisar cada desafio e encontrar diferentes alternativas para soluciona-lo.
+        </dd>
+        <dt>
+            <b>Trabalho em equipe</b>
+        </dt>
+        <dd>
+            Tenho facilidade pra colaborar, compartilhar ideias e ouvir diferente opiniões.
+        </dd>
+        <dt>
+            Comunicação
+        </dt>
+        <dd>
+            Busco transmitir minhas ideias de forma simples, clara e respeitosa.
+        </dd>
+
+    </dl>
+
+    <h2 style="text-decoration: dotted; text-decoration-line: underline;">Conhecimentos Técnicos</h2>
+    <!-- <ul></ul>: Cria uma lista não ordenada.
+    <ol></ol>: Cria uma lista ordenada.
+    <li></li>: Cria um item para a lista tanto ordenada, quanto não ordenada. -->
+    <ul style="list-style: armenian;">
+        <li>HTML Básico</li>
+        <li>CSS Básico</li>
+        <li>Lógica de Programação</li>
+        <li>Git e Github</li>
+        <li>Java</li>
+        <li>MySQL</li>
+        <li>PHP</li>
+        <li>Flutterflow</li>
+        <li>C</li>
+    </ul>
+    <p>
+        <!-- <code></code>: Indica um pequeno trecho relacionados a codigo ou comandos de programação -->
+        Atualmente estou aprendendo o comando
+        <code>git commit</code>
+        para registrar alterações em meus projetos.
+    </p>
+    <hr>
+
+    <h2>Experiencia</h2>
+    <h3>Projeto de Desenvolvimento Web</h3>
+    <p>
+        <!-- <i></i>/<em></em>: Deixa o texto em italico. -->
+        <b>Projeto acadêmico | </b>
+        <i>2026</i>
+    </p>
+    <ol style="list-style: upper-roman;">
+        <li>Criação de páginas utilizando HTML.</li>
+        <li>Organização de arquivos e pastas do projeto.</li>
+        <li>Utilização do Git para controle de versão.</li>
+        <li>Publicação dos projetos no GitHub.</li>
+        <li>Um sistema para manutenção predial com CRUD usando java e window builder</li>
+        <li>Um jogo basico utilizando java</li>
+    </ol>
+    <hr>
+
+    <h2>Cursos e Certificações</h2>
+    <ul style="list-style: armenian;">
+        <li>Analise e Desenvolvimento de Sistemas - 2000h - Cursando</li>
+        <li>HTML e CSS- 20h - finalizado</li>
+        <li>Desenvolvedor Web - 240h - Cursando</li>
+        <li>Curso de Desenvolvimento de Games - 100h - Cursando</li>
+    </ul>
+    <p>
+        <small>
+            As cargas horárias apresentadas são exemplos utilizados exclusivamente nesta atividade.
+        </small>
+    </p>
+    <hr>
+
+    <h2>Idiomas</h2>
+    <ul style="list-style: armenian;">
+        <li>Portugues - Nativo</li>
+        <li>Ingles - Intermediario</li>
+    </ul>
+    <!-- <sup></sup>: Cria um texto/ conteúdo sobrescrito. Pode ser um expoente, referencia, nomenclatura, etc... -->
+    <p>
+        Meta pessoal: alcançar o nivel B<sup>2</sup> em ingles
+    </p>
+    <hr>
+
+    <h2>Interesses</h2>
+    <!-- <blockquote></blockquote>: Cria uma citação, deixando o texto mais para o lado
+    <q></q>:Cria uma citação curta dentro de um texto, colocando aspas -->
+    <p>
+        Tecnologia, inteligencia artificial, programação, jogos, desenvolvimento de sistemas e aprendizado de novas
+        ferramentas.
+    </p>
+    <blockquote>
+        "Sempre podemos aprender algo novo quando estamos dispostos a tentar."
+    </blockquote>
+    <p>
+        Uma frase que representa minha forma de pensar é:
+        <q>aprender fazendo</q>.
+    </p>
+    <hr>
+
+    <h2>Referencia</h2>
+    <ol style="list-style: upper-roman;">
+        <li>Maria Souza - Professora - contato@email.com</li>
+        <li>Pedro Oliveira - Coordenador - contato@email.com</li>
+    </ol>
+    <hr>
+    <small>
+        Currículo desenvolvido como atividade prática de HTML.
+    </small>
+
+    <div style="display: flex; gap: 15px;
+                text-align: center;">
+        <figure>
+            <img src="imagens/favicon.webp" alt="Chaleira" style="width: 50vh;border-radius: 110px; filter: invert();
+            border: dotted #9a02ff;
+            padding: 10px;">
+            <figcaption>Chaleira</figcaption>
+        </figure>
+    </div>
+</body>
+
+</html>

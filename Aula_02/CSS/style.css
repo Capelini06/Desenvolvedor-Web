@@ -1,0 +1,23 @@
+*{
+    margin: 10;
+
+}
+.texto-colorido{
+    background: linear-gradient(to right, #3cff00,#218f00,rgb(20, 84, 0),#218f00,#3cff00);
+    color: transparent;
+    background-size: 500% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: mudarCores infinite 8s ease-in-out;
+}
+
+@keyframes mudarCores{
+    0%{
+        background-position: 0% center;
+    }
+
+    100%{
+        background-position: 300% center;
+    }
+}

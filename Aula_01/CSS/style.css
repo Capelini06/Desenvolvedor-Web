@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #e7e7e7;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.25;
+}
+
+.texto-colorido {
+    background: linear-gradient(to right, red, rgb(219, 5, 104), rgb(132, 0, 62), 
+    purple, rgb(132, 0, 62), rgb(219, 5, 104));
+    background-size: 500% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: mudarCores 5s ease-in-out infinite;
+}
+
+@keyframes mudarCores {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 100% center;
+    }
+}

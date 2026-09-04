@@ -1,0 +1,4 @@
+1px
+1em -> 4px
+1rem -> 8px
+1vh -> Varia dependendo do dispositivo

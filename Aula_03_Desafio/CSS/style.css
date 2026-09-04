@@ -1,0 +1,56 @@
+body {
+    background-color: #f0f4f8;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+h1{
+    color: #20365d;
+}
+
+h2 {
+    color: #20365d;
+}
+
+h3 {
+    color: #3e4654;
+}
+
+.nome {
+    color: #3b6cb1;
+}
+
+hr {
+    border: none;
+    height: 8px;
+    background-color: #3b6cb1;
+}
+
+img {
+    width: 40vh;
+    border: 8px solid #3b6cb1;
+    border-radius: 90%;
+    object-fit: fill;
+}
+
+a {
+    padding: 5px;
+    
+}
+
+.botao_git {
+    background-color: #3b6cb1;
+    color: aliceblue;
+    
+}
+
+.botao_linkedin{
+    background-color: #20365d;
+    color: aliceblue;
+}
+
+.rodape {
+    color: #707275;
+}
