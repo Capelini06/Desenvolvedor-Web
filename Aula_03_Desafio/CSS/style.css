@@ -3,7 +3,8 @@ body {
     width: 50%;
     margin: auto;
     text-align: center;
-    font-size: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.725rem;
 }
 
 h1{
@@ -16,6 +17,14 @@ h2 {
 
 h3 {
     color: #3e4654;
+}
+
+p {
+    color: #5f6061;
+}
+
+li {
+    color: #5f6061;;
 }
 
 .nome {
@@ -37,20 +46,21 @@ img {
 
 a {
     padding: 5px;
-    
+    text-decoration: none;
 }
 
 .botao_git {
     background-color: #3b6cb1;
+    border: 4px solid #20365d;
     color: aliceblue;
-    
 }
 
 .botao_linkedin{
     background-color: #20365d;
+    border: 4px solid #3b6cb1;
     color: aliceblue;
 }
 
 .rodape {
-    color: #707275;
+    color: #949597;
 }
