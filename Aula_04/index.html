@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML semantico</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body class="container-principal">
+    <!-- <header></header>: Cria um cabeçalho. -->
+    <header class="cabecalho">
+        <h1>Header (Cabeçalho)</h1>
+    </header>
+
+    <!-- <main></main>: Cria uma sessão principal. -->
+    <!-- <nav></nav>: Cria um menu de navegação. -->
+    <main class="conteudo-principal">
+        <nav class="navegacao">
+            <h1 class="text-vertical">
+                Nav (Menu de navegação)
+            </h1>
+        </nav>
+
+        <!-- <section></section>: Cria uma nova sessão do site. -->
+        <!-- <div></div>: Cria uma repartição do conteudo fazendo uma divisão -->
+        <!-- <article></article>: Representa uma seção de conteudo que é idependente como um artigo -->
+        <section class="sessao-semantica">
+            <div class="article-div">
+                <article>
+                    <h1>Article 1</h1>
+                </article>
+                <article>
+                    <h1>Article 2</h1>
+                </article>
+            </div>
+
+            <!-- <time datetime=""></time>: Representa dia, mês e ano. -->
+            <!-- <figure></figure>: Representa que será criada uma imagem, animação ou figura dentro dessa sessão. -->
+            <!-- <figcaption></figcaption>: Representa uma descrição de uma imagm ou figura.  -->
+            <div class="article-div">
+                <time datetime="2026/09/08"> 08 de Setembro de 2026</time>
+                <figure class="figure">
+                    <img src="./assets/chaleira.webp" class="imagem" alt="Chaleira">
+                    <figcaption>Imagem de uma chaleira</figcaption>
+                </figure>
+                <h2>Lorem, ipsum dolor <mark>sit amet consectetur adipisicing elit</mark>. Voluptas vitae excepturi
+                    beatae repellat eligendi voluptatibus quaerat ullam animi voluptate mollitia libero sequi, obcaecati
+                    rem numquam laboriosam perferendis laudantium provident similique?</h2>
+            </div>
+        </section>
+
+        <!-- <aside></aside>: Representa uma seção que se relaciona diretamente com o assunto principal ou relacionado a anuncios -->
+        <aside class="anuncio">
+            <h2 class="texto-vert">Aside(anuncios, links secundarios, etc...)</h2>
+        </aside>
+    </main>
+
+    <!-- <footer></footer>: Representa uma seção do rodapé com links secundarios e endereços para contato -->
+    <footer class="rodape">
+        <h3>Footer (rodape)</h3>
+        <a href="mailto:Guilherme.capelini06@gmail.com ">
+            <address>Guilherme.capelini06@gmail.com</address>
+        </a>
+    </footer>
+</body>
+
+</html>
