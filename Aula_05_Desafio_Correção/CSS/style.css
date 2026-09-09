@@ -1,0 +1,57 @@
+:root {
+    --cinza-escuro: #11172a;
+    --cinza-claro: #20293b;
+    --cinza-borda: #354155; 
+    --azul: #3a83c7;
+    --azul-borda: #37719a;
+    --aliceblue: #f0f8ff;
+
+} 
+
+* {
+    line-height: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--cinza-escuro);
+    color: var(--aliceblue);
+}
+
+main {
+    width: 80%;
+    height: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    gap: 3rem;
+}
+
+.conteudo-principal {
+    display: flex;
+}
+
+.informacoes {
+    background-color: var(--cinza-claro);
+    border: 3px solid var(--cinza-borda);
+    border-radius: 20px;
+    text-align: center;
+    padding: 3rem;
+}
+
+.conteudo {
+    background-color: var(--cinza-claro);
+    border: 3px solid var(--cinza-borda);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.apresentacao {
+    
+}
+
+img {
+    width: calc(100% - 2rem);
+    border: 5px solid var(--azul-borda);
+    border-radius: 80%;
+}
+

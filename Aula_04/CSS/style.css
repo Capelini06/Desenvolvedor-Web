@@ -1,3 +1,11 @@
+:root{
+    --cinza-escuro:#808080;
+    --cinza-claro:#a9a9a9;
+    --cinza-azulado:#708090;
+    --preto:#000000;
+    --aliceblue: #f0f8ff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,16 +16,17 @@
 }
 
 .cabecalho {
-    background-color: #808080;
+    background-color: var(--cinza-escuro);
+    border: 1px solid var(--preto);
     border-radius: 5px;
     text-align: center;
-    color: aliceblue;
+    color: var(--aliceblue);
     padding: 1rem;
 }
 
 .conteudo-principal {
-    background-color: #a9a9a9;
-    border: 1px solid #000000;
+    background-color: var(--cinza-claro);
+    border: 1px solid var(--preto);
     border-radius: 5px;
     padding: 1rem;
     width: calc(100% - 2rem);
@@ -29,20 +38,20 @@
 .navegacao,
 .anuncio {
     text-align: center;
-    background-color: gray;
+    background-color: var(--cinza-escuro);
     padding: 1rem;
-    border: 1px solid #000000;
+    border: 1px solid var(--preto);
     border-radius: 5px;
     width: 15%;
     justify-content: center;
-    color: aliceblue;
+    color: var(--aliceblue);
 }
 
 .sessao-semantica {
     width: 70%;
-    background-color: #808080;
+    background-color: var(--cinza-escuro);
     padding: 1rem;
-    border: 1px solid black;
+    border: 1px solid var(--preto);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -50,9 +59,9 @@
 }
 
 .article-div {
-    background-color: slategray;
+    background-color: var(--cinza-azulado);
     padding: 1rem;
-    border: 1px solid black;
+    border: 1px solid var(--preto);
     border-radius: 5px;
     flex-direction: column;
     gap: 1rem;
@@ -62,14 +71,10 @@
 }
 
 .imagem {
-    width: calc(100% - 0,125);
+    width: calc(100% - 0,125rem);
     height: auto;
     border-radius: 5px;
-    border: 1px solid black;
-}
-
-.figure {
-
+    border: 1px solid var(--preto);
 }
 
 .texto-vert {
@@ -77,12 +82,12 @@
 }
 
 .rodape {
-    background-color: darkgray;
+    background-color: var(--cinza-claro);
     padding: 1rem;
-    border-radius: 1px solid black;
+    border: 1px solid var(--preto);
     border-radius: 5px;
     text-align: center;
-    color: aliceblue;
+    color: var(--aliceblue);
     display: flex;
     flex-direction: column;
     gap: 1rem;

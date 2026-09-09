@@ -1,0 +1,96 @@
+:root {
+    --cinza-escuro: #11172a;
+    --cinza-claro: #20293b;
+    --cinza-borda: #354155; 
+    --azul: #3a83c7;
+    --azul-borda: #56b0f0;
+    --aliceblue: #f0f8ff;
+    --azul-fundo: #172c40;
+    --rodape: #919191;
+} 
+
+* {
+    line-height: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.3rem;
+}
+
+.portifolio-container {
+    background-color: var(--cinza-escuro);
+    color: var(--aliceblue);
+    display: flex;
+    align-items: flex-start;
+    width: 80%;
+    height: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    gap: 3rem;
+}
+
+
+.sidebar {
+    background-color: var(--cinza-claro);
+    border: 3px solid var(--cinza-borda);
+    border-radius: 20px;
+    text-align: center;
+    padding: 0rem;
+}
+
+figure,h3,
+p, li{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+figcaption {
+    color: var(--azul);
+}
+
+hr {
+    width: 100%;
+    padding: 0;
+}
+
+.conteudo {
+    background-color: var(--cinza-claro);
+    border: 3px solid var(--cinza-borda);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.head-banner {
+    background-color: var(--azul);
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.foto-perfil {
+    width: calc(100% - 2rem);
+    border: 5px solid var(--azul-borda);
+    border-radius: 80%;
+}
+
+.section-box {
+    background-color: var(--cinza-escuro);
+    border: 3px solid var(--cinza-borda);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.container {
+    background-color: var(--azul-fundo);
+    border: 3px solid var(--azul-borda);
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    text-align: center;
+}
+
+h2 {
+    color: var(--azul);
+}
+
+footer {
+    color: var(--rodape);
+}
