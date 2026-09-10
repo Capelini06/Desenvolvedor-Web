@@ -9,6 +9,7 @@
     --rodape: #919191;
 } 
 
+
 * {
     line-height: 1.5rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -76,6 +77,7 @@ hr {
     border: 3px solid var(--cinza-borda);
     border-radius: 15px;
     padding: 2rem;
+    text-align: center;
 }
 
 .container {
@@ -84,7 +86,10 @@ hr {
     border-radius: 15px;
     padding: 1rem;
     display: flex;
-    text-align: center;
+
+    img {
+        border-radius: 25px;
+    }
 }
 
 h2 {
@@ -93,4 +98,14 @@ h2 {
 
 footer {
     color: var(--rodape);
+}
+
+a{
+    color: var(--azul);
+}
+
+mark {
+    color: var(--aliceblue);
+    background-color: var(--azul);
+    padding: 0.2rem;
 }
