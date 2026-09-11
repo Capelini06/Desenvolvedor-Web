@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./CSS/style.css"> -->
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="../projeto-simples-html/image.png">
+    <!-- Ícones do Google (Material Symbols) -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <div class="menu-left">
+                <span class="material-symbols-outlined menu-icon">menu</span>
+                <span class="menu-text">Menu</span>
+            </div>
+            <div class="logo">
+                <h1>G2</h1>
+            </div>
+
+            <div class="search-login">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar no G2">
+                    <span class="material-symbols-outlined">Search</span>
+                </div>
+                <button class="btn-login">
+                    <span class="material-symbols-outlined">Person</span>
+                    Entrar
+                </button>
+            </div>
+        </div>
+
+        <nav class="category-nav">
+            <ul>
+                <li>
+                    <a class="active" href="">BRASIL</a>
+                </li>
+                <li>
+                    <a href="">MUNDO</a>
+                </li>
+                <li>
+                    <a href="">POLÍTICA</a>
+                </li>
+                <li>
+                    <a href="">ECONOMIA</a>
+                </li>
+                <li>
+                    <a href="">TECNOLOGIA</a>
+                </li>
+                <li>
+                    <a href="">CIÊNCIA E SAÚDE</a>
+                </li>
+                <li>
+                    <a href="">POP & ARTE</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="main-news">
+            <article class="hero-article">
+                <a href="">
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                            alt="Processador de Computador Iluminado">
+                        <figcaption>
+                            <span class="tag">Tecnologia</span>
+                            <h2>Nova geração dos chips promete revolucionar a inteligência artificial em dispositivos
+                                moveis</h2>
+                            <p>Especialistas apontam que a eficiência energética aumentou em até 40% em comparação com a
+                                geração anterior.</p>
+                            <time datetime="now">Há 15 minutos</time>
+                        </figcaption>
+                    </figure>
+                </a>
+            </article>
+
+            <section class="secondary-grid">
+                <article class="news-card">
+                    <a href="">
+                        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Gráficos financeiros">
+                        <div class="card-content">
+                            <span class="tag">Economia</span>
+                            <h3>Mercado financeiro reage positivamente ao novo pacote de medidas.</h3>
+                            <time datetime="">Há 1 hora</time>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="news-card">
+                    <a href="">
+                        <img src="https://s2-g1.glbimg.com/FlCvemBgeKAoKA9ijFlwfvZjT98=/0x0:4136x2757/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/L/f/UgW9LwT7eVbRic7fwe3A/2026-04-01t223823z-1563233277-hp1em411qvxwm-rtrmadp-3-space-moon-artemis."
+                            alt="Foguete sendo lançado">
+                        <div class="card-content">
+                            <span class="tag">Tecnologia</span>
+                            <h3>Agência espacial agenda novo lançamento tripulado para Marte.</h3>
+                            <time datetime="">Há 3 hora</time>
+                        </div>
+                    </a>
+                </article>
+            </section>
+        </section>
+    </main>
+
+    <aside class="sidebar">
+        <div class="widget most-read">
+            <ol>
+                <li>
+                    <a href="">
+                        <span class="number">1</span>
+                        <p>Entenda as novas regras para emissão de passaportes a partir de hoje.</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="">
+                        <span class="number">2</span>
+                        <p>Estudo revela o impacto das redes sociais na produtividade.</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="">
+                        <span class="number">3</span>
+                        <p>Banda internacional anuncia turnê no Brasil com três shows.</p>
+                    </a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="widget weather">
+            <h3>Previsão do tempo</h3>
+        </div>
+    </aside>
+
+</body>
+
+</html>

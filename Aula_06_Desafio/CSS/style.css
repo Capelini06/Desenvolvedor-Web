@@ -8,11 +8,12 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
     line-height: 1.125rem;
     background-color: var(--cinza-fundo);
 }
@@ -142,25 +143,26 @@ aside span {
 }
 
 .tempo figure{
+    margin: 0%;
     display: flex;
     text-align: center;
+    white-space: nowrap;
 }
 
 .tempo figure img {
     width: 3rem;
 }
 
-
-/* .noticia-principal{
+.noticia-principal{
     background-color: white;
-} */
+} 
 
-/* .noticia-principal img{
+.noticia-principal img{
     padding: 0 0 0 0;
     margin: 0;
     width: 100%;
     height: auto;
-} */
+}
 
 footer{
     background-color: var(--azul-escuro);
@@ -168,4 +170,9 @@ footer{
     display: flex;
     text-align: center;
     justify-content: space-between;
+}
+
+footer img {
+    width: 25px;
+    height: auto;
 }

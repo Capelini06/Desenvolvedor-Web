@@ -1,0 +1,13 @@
+.pai{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.gemeos {
+    border: 2px double dodgerblue;
+    border-radius: 5px;
+    width: calc(33% - 35px);
+    text-align: center;
+    padding: 14px;
+}
