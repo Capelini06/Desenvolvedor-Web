@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./CSS/style.css">
     <!-- <link rel="stylesheet" href="./CSS/style.css"> -->
     <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,10 +33,10 @@
             <div class="search-login">
                 <div class="search-box">
                     <input type="text" placeholder="Buscar no G2">
-                    <span class="material-symbols-outlined">Search</span>
+                    <span class="material-symbols-outlined">search</span>
                 </div>
                 <button class="btn-login">
-                    <span class="material-symbols-outlined">Person</span>
+                    <span class="material-symbols-outlined">person</span>
                     Entrar
                 </button>
             </div>
@@ -73,7 +74,7 @@
             <article class="hero-article">
                 <a href="">
                     <figure>
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        <img src="./assets/imagens/chip.avif"
                             alt="Processador de Computador Iluminado">
                         <figcaption>
                             <span class="tag">Tecnologia</span>
@@ -90,7 +91,7 @@
             <section class="secondary-grid">
                 <article class="news-card">
                     <a href="">
-                        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        <img src="./assets/imagens/dinheiro.avif"
                             alt="Gráficos financeiros">
                         <div class="card-content">
                             <span class="tag">Economia</span>
@@ -102,7 +103,7 @@
 
                 <article class="news-card">
                     <a href="">
-                        <img src="https://s2-g1.glbimg.com/FlCvemBgeKAoKA9ijFlwfvZjT98=/0x0:4136x2757/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/L/f/UgW9LwT7eVbRic7fwe3A/2026-04-01t223823z-1563233277-hp1em411qvxwm-rtrmadp-3-space-moon-artemis."
+                        <img src="./assets/imagens/foguete.webp"
                             alt="Foguete sendo lançado">
                         <div class="card-content">
                             <span class="tag">Tecnologia</span>
@@ -113,38 +114,56 @@
                 </article>
             </section>
         </section>
+
+        <aside class="sidebar">
+            <div class="widget most-read">
+                <h3>Mais Lidas</h3>
+                <ol>
+                    <li>
+                        <a href="">
+                            <span class="number">1</span>
+                            <p>Entenda as novas regras para emissão de passaportes a partir de hoje.</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <span class="number">2</span>
+                            <p>Estudo revela o impacto das redes sociais na produtividade.</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <span class="number">3</span>
+                            <p>Banda internacional anuncia turnê no Brasil com três shows.</p>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="widget weather">
+                <h3>Previsão do Tempo</h3>
+                <div class="weather-info">
+                    <span class="material-symbols-outlined weather-icon">partly_cloudy_day</span>
+                    <div class="weather-details">
+                        <h4 class="weather-city">São Paulo, SP</h4>
+                        <h4 class="weather-temp">24°C</h4>
+                        <p class="weather-desc">Parcialmente Nublado</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </main>
 
-    <aside class="sidebar">
-        <div class="widget most-read">
-            <ol>
-                <li>
-                    <a href="">
-                        <span class="number">1</span>
-                        <p>Entenda as novas regras para emissão de passaportes a partir de hoje.</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="">
-                        <span class="number">2</span>
-                        <p>Estudo revela o impacto das redes sociais na produtividade.</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="">
-                        <span class="number">3</span>
-                        <p>Banda internacional anuncia turnê no Brasil com três shows.</p>
-                    </a>
-                </li>
-            </ol>
+    <footer class="site-footer">
+        <div class="logo">g2</div>
+        <p>&copy; 2026 Portal G2 de Notícias. Todos os direitos reservados.</p>
+        <div class="footer-icons">
+            <span class="material-symbols-outlined">share</span>
+            <span class="material-symbols-outlined">mail</span>
         </div>
-
-        <div class="widget weather">
-            <h3>Previsão do tempo</h3>
-        </div>
-    </aside>
+    </footer>
 
 </body>
 
