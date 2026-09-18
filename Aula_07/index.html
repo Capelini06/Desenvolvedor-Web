@@ -1,59 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Orbita digital</title>
     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Work+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <header class="cabecalho">
-        <div class="logo">
-            <!-- logo -->
-             <h1>Órbita Digital</h1>
-        </div>
-
-        <ul>
-            <li>
-                <a href="">Inicio</a>
-            </li>
-            <li>
-                <a href="">Sobre</a>
-            </li>
-            <li>
-                <a href="">Serviços</a>
-            </li>
-            <li>
-                <a href="">Portifólio</a>  
-            </li>
-            <li>
-                <a href="">Contato</a>                
-            </li>
-        </ul>
-
-        <a class="botao-laranja" href=""> Fale conosco</a>
+    <header class="site-header">
+        <a href="index.html" class="logo"><span class="logo-mark"></span>Órbita Digital</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" aria-current="page">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="portfolio.html">Portfólio</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn btn-primary nav-cta">Fale Conosco</a>
     </header>
     <main>
+
         <section class="hero">
-            <div>
-                <p class="tag">AGÊNCIA DIGITAL</p>
-                <h2>Sites e marketing que colocam sua empresa no mapa</h2>
-                <p>Criamos sites rápidos, identidade visual e campanhas de marketing digital para pequenas e médias empresas que querem crescer online.</p>
-                <br>
-                <a class="botao-laranja" href="">
-                    Pedir orçamento
-                </a>
-                <a class="botao-transparente" href="">
-                    Ver portifólio
-                </a>
-            </div>
-            <div>
-                <figure>
-                    <img src="./imagens/foto-hero.jpg" alt="">
-                </figure>
+            <span>o que fazemos</span>
+            <h2>Serviços para tirar sua empresado papel</h2>
+            <p>Da primeira ideia até a campanha no ar — cuidamos de cada atapa da <br> sua presença digital.</p>
+        </section>
+
+        <section class="card-section">
+            <div class="cards">
+                <div class="card">
+                    <span class="tag">💻</span>
+                    <h3>Criação de sites</h3>
+                    <p>Sites institucionais, landing pages e lojas virtuais rápidas, responsivas e fáceis de atualizar.
+                    </p>
+                </div>
+                <div class="card">
+                    <span class="tag">🎨</span>
+                    <h3>Identidade visual</h3>
+                    <p>Logotipo, paleta de cores, tipografia e manual de marca para uma imagem consistente.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">📣</span>
+                    <h3>Markenting digital</h3>
+                    <p>Planejamento de redes sociais, tráfego pago e e-mail marketing com metas claras.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">🔍</span>
+                    <h3>SEO & performance</h3>
+                    <p>Otimização para mecanismos de busca e velocidade de carregamento do site.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Configuração de loja virtual com pagamento online e catálogo de produtos.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">🛠️</span>
+                    <h3>Manutenção</h3>
+                    <p>Suporte contínuo, atualizações de conteúdo e pequenos ajustes sob demanda.</p>
+                </div>
             </div>
         </section>
     </main>
-    
+
 </body>
+
 </html>
