@@ -78,6 +78,12 @@ Lista de exercícios juntando tudo o que foi visto: condicionais, laços (`while
 Percorrendo vetores com `for`: listas numeradas de nomes, produtos e cidades, e contagem de alunos aprovados e reprovados a partir das notas digitadas.
 - `for_recapitulacao.php`: recapitulação de como percorrer um vetor com `for`.
 
+### [Aula 20](Aulas_php/Aula_20/) – Formulários com `GET`
+Primeiras páginas PHP no navegador: formulários HTML que enviam dados pela URL com `method="get"`, lidos no PHP com `$_GET` e `isset()`, e exibidos com segurança usando `htmlspecialchars()`.
+- [Exemplo-GET](Aulas_php/Aula_20/Exemplo-GET/): exemplo da aula, que recebe nome e idade e diz se a pessoa é maior ou menor de idade.
+- [atividade-01](Aulas_php/Aula_20/atividade-01/): calculadora de IMC que mostra o resultado e a classificação (abaixo do peso até obesidade grau III).
+- [atividade-01.2](Aulas_php/Aula_20/atividade-01.2/): nova versão da calculadora, com o cálculo separado do HTML, aceitando vírgula nos números, validando valores maiores que 0 e formatando o IMC com `number_format`.
+
 ## Como executar
 
 **HTML e CSS:** abra o arquivo `index.html` da aula no navegador (ou use a extensão Live Server do VS Code).
@@ -87,5 +93,13 @@ Percorrendo vetores com `for`: listas numeradas de nomes, produtos e cidades, e 
 ```bash
 php Aulas_php/Aula_09/atividade-01.php
 ```
+
+A partir da Aula 20 as atividades rodam no navegador. Inicie o servidor embutido do PHP na pasta da atividade e acesse o endereço indicado:
+
+```bash
+php -S localhost:8000 -t Aulas_php/Aula_20/Exemplo-GET
+```
+
+Depois abra `http://localhost:8000/processa.php` (ou `imc.php`, nas atividades).
 
 Algumas atividades da Aula 17 usam `array_last()`, que precisa do PHP 8.5 ou mais recente.
