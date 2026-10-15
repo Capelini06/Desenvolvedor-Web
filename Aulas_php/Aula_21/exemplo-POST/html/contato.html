@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTATO - POST</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="contato.html">CONTATO</a>
+            <a href="login.html">LOGIN</a>
+            <a href="notas.html">NOTAS</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h1>Fale Conosco</h1>
+            <form action="../php/contato.php" method="post">
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input  type="text" 
+                            name="nome" 
+                            id="nome"
+                            placeholder="Prencha o seu Nome" 
+                            required>
+                </div>
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input  type="email" 
+                            name="email" 
+                            id="email"
+                            placeholder="Insira o seu E-mail" 
+                            required>
+                </div>
+                <div class="campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea name="mensagem" id="mensagem" placeholder="Digite a sua mensagem"></textarea>
+                </div>
+                <button type="submit">ENVIAR</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

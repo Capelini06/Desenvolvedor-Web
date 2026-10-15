@@ -84,6 +84,13 @@ Primeiras páginas PHP no navegador: formulários HTML que enviam dados pela URL
 - [atividade-01](Aulas_php/Aula_20/atividade-01/): calculadora de IMC que mostra o resultado e a classificação (abaixo do peso até obesidade grau III).
 - [atividade-01.2](Aulas_php/Aula_20/atividade-01.2/): nova versão da calculadora, com o cálculo separado do HTML, aceitando vírgula nos números, validando valores maiores que 0 e formatando o IMC com `number_format`.
 
+### [Aula 21](Aulas_php/Aula_21/) – Formulários com `POST`
+Formulários que enviam os dados com `method="post"`, sem aparecer na URL, lidos no PHP com `$_POST`. O exemplo separa as páginas HTML (pasta `html/`, com menu de navegação e um CSS em comum) dos arquivos PHP que processam cada formulário (pasta `php/`).
+- [exemplo-POST](Aulas_php/Aula_21/exemplo-POST/): três formulários:
+  - `contato`: recebe nome, e-mail e mensagem e mostra uma confirmação.
+  - `login`: compara usuário e senha com valores fixos e avisa se a senha está errada ou se o usuário não existe.
+  - `notas`: recebe três notas, calcula a média e mostra a situação do aluno (aprovado, exame final ou reprovado).
+
 ## Como executar
 
 **HTML e CSS:** abra o arquivo `index.html` da aula no navegador (ou use a extensão Live Server do VS Code).
@@ -101,5 +108,13 @@ php -S localhost:8000 -t Aulas_php/Aula_20/Exemplo-GET
 ```
 
 Depois abra `http://localhost:8000/processa.php` (ou `imc.php`, nas atividades).
+
+Na Aula 21, inicie o servidor na pasta `exemplo-POST` (os formulários apontam para `../php/`) e abra uma das páginas HTML:
+
+```bash
+php -S localhost:8000 -t Aulas_php/Aula_21/exemplo-POST
+```
+
+Por exemplo, `http://localhost:8000/html/contato.html`.
 
 Algumas atividades da Aula 17 usam `array_last()`, que precisa do PHP 8.5 ou mais recente.
