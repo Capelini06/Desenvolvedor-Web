@@ -3,11 +3,13 @@
 $mostrarResultado = false;
 $erro = "";
 $classificacao = "";
+$imc = 0;
+$peso = 0;
+$altura = 0;
 
 if (isset($_GET["peso"]) && isset($_GET["altura"])) {
-    $peso = (float) str_replace(",", ".", $_GET["peso"]);
-    $altura = (float) str_replace(",", ".", $_GET["altura"]);
-    $imc = $peso / ($altura**2);
+    $peso = (float) str_replace(",", ".", $_GET["peso"] ?? "");
+    $altura = (float) str_replace(",", ".", $_GET["altura"] ?? "");
 
     if ($peso <= 0 || $altura <= 0) {
         $erro = "Informe peso e altura maior que 0";
@@ -51,12 +53,11 @@ if (isset($_GET["peso"]) && isset($_GET["altura"])) {
                     value="<?= htmlspecialchars($_GET[$altura] ?? "") ?>">
                 <button type="submit">CALCULAR</button>
             </form>
-        </div>
-
+        
         <?php if ($erro != "") { ?>
             <p class="erro"><?= $erro ?></p>
         <?php } ?>
-
+        
         <?php if ($mostrarResultado) { ?>
             <div class="card">
                 <p>IMC: <strong><?= number_format($imc, 2, ",", ".") ?></strong></p>
