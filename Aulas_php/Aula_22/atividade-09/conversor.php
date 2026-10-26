@@ -20,4 +20,4 @@ if (is_numeric($reais)
 } else {
     echo"<p>Erro: Informe valores numéricos</p>";
 }
-echo "<br><a href='conversor.html'>Fazer nova conversão</a>";
+echo "<br><a href='index.html'>Fazer nova conversão</a>";

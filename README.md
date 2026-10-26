@@ -91,6 +91,19 @@ Formulários que enviam os dados com `method="post"`, sem aparecer na URL, lidos
   - `login`: compara usuário e senha com valores fixos e avisa se a senha está errada ou se o usuário não existe.
   - `notas`: recebe três notas, calcula a média e mostra a situação do aluno (aprovado, exame final ou reprovado).
 
+### [Aula 22](Aulas_php/Aula_22/) – `GET` x `POST`
+Comparação entre os dois métodos de envio, usando `$_SERVER["REQUEST_METHOD"]`, o operador `??` e `trim()` para tratar campos vazios.
+- [exemplo](Aulas_php/Aula_22/exemplo/): dois formulários na mesma página, um enviando o nome por `GET` (`resultado.php`) e outro o usuário por `POST` (`login.php`).
+- [atividade-01](Aulas_php/Aula_22/atividade-01/): um único arquivo `leitor.php` que identifica se o nome chegou por `GET` ou por `POST`.
+- [atividade-02](Aulas_php/Aula_22/atividade-02/): o mesmo login (usuário `ADMIN`, senha `123abc`) feito em duas versões, uma com `GET` e outra com `POST`.
+- [atividade-09](Aulas_php/Aula_22/atividade-09/): conversor de reais para dólar a partir da cotação informada, validando com `is_numeric()` e formatando os valores com `number_format`.
+
+### [Aula 23](Aulas_php/Aula_23/) – Revisão de PHP
+Revisão dos tipos de dados e da conversão de tipos, de volta ao terminal.
+- `atividade-01.php`: variáveis de texto, número inteiro, decimal e booleano exibidas com `var_dump()`.
+- `atividade-02.php`: baixa de estoque, subtraindo a quantidade de saída digitada.
+- `index.php`: cadastro de vários usuários com `readline()`, guardando só os maiores de idade em um vetor associativo e listando os dados no final.
+
 ## Como executar
 
 **HTML e CSS:** abra o arquivo `index.html` da aula no navegador (ou use a extensão Live Server do VS Code).
@@ -116,5 +129,9 @@ php -S localhost:8000 -t Aulas_php/Aula_21/exemplo-POST
 ```
 
 Por exemplo, `http://localhost:8000/html/contato.html`.
+
+Na Aula 22, inicie o servidor na pasta de cada atividade e abra o `index.html` (ou `login-get.html` / `login-post.html`, na atividade-02).
+
+A Aula 23 volta a rodar pelo terminal, como as primeiras aulas.
 
 Algumas atividades da Aula 17 usam `array_last()`, que precisa do PHP 8.5 ou mais recente.
