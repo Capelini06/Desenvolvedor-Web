@@ -104,6 +104,17 @@ Revisão dos tipos de dados e da conversão de tipos, de volta ao terminal.
 - `atividade-02.php`: baixa de estoque, subtraindo a quantidade de saída digitada.
 - `index.php`: cadastro de vários usuários com `readline()`, guardando só os maiores de idade em um vetor associativo e listando os dados no final.
 
+### [Aula 24](Aulas_php/Aula_24/) – Funções
+Criação de funções com `function`, passagem de parâmetros e diferença entre exibir o resultado com `echo` e devolvê-lo com `return`.
+- [exemplos](Aulas_php/Aula_24/exemplos/):
+  - `ex01.php`: função que calcula a média de três notas e função que mostra uma mensagem de boas-vindas.
+  - `ex02.php` e `ex03.php`: a mesma função chamada várias vezes com valores diferentes (saudação e soma).
+  - `ex04.php` e `ex05.php`: funções que recebem valores digitados com `readline()` (total da compra e soma).
+  - `ex06.php`: comparação entre uma função com `echo` e outra com `return`, mostrando o retorno com `var_dump()`.
+  - `ex07.php`: usando o resultado de uma função como parâmetro de outra chamada.
+  - `ex08.php`: desconto de 10% para compras a partir de R$ 200, com `if` dentro da função.
+  - `ex09.php`: subtotal e desconto calculados em funções separadas para chegar ao total.
+
 ## Como executar
 
 **HTML e CSS:** abra o arquivo `index.html` da aula no navegador (ou use a extensão Live Server do VS Code).
@@ -132,6 +143,6 @@ Por exemplo, `http://localhost:8000/html/contato.html`.
 
 Na Aula 22, inicie o servidor na pasta de cada atividade e abra o `index.html` (ou `login-get.html` / `login-post.html`, na atividade-02).
 
-A Aula 23 volta a rodar pelo terminal, como as primeiras aulas.
+As Aulas 23 e 24 voltam a rodar pelo terminal, como as primeiras aulas.
 
 Algumas atividades da Aula 17 usam `array_last()`, que precisa do PHP 8.5 ou mais recente.
