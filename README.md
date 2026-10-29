@@ -113,7 +113,17 @@ Criação de funções com `function`, passagem de parâmetros e diferença entr
   - `ex06.php`: comparação entre uma função com `echo` e outra com `return`, mostrando o retorno com `var_dump()`.
   - `ex07.php`: usando o resultado de uma função como parâmetro de outra chamada.
   - `ex08.php`: desconto de 10% para compras a partir de R$ 200, com `if` dentro da função.
-  - `ex09.php`: subtotal e desconto calculados em funções separadas para chegar ao total.
+  - `ex09.php`: subtotal e desconto calculados em funções separadas para chegar ao total, com o desconto escrito usando o operador ternário (`? :`).
+  - `ex10.php`: função que calcula a área de um retângulo, usada para a sala e para o quarto.
+  - `ex11.php`: carrinho com três produtos, juntando funções de subtotal, soma dos produtos e desconto para chegar ao total.
+
+### [Aula 25](Aulas_php/Aula_25/) – `include`
+Separação das partes que se repetem em todas as páginas em arquivos próprios na pasta `includes/` (`cabecalho.php`, com o menu, e `rodape.php`), reaproveitados com `include` nas páginas `index.php` e `contato.php`.
+
+### [Aula 26](Aulas_php/Aula_26/) – `include` com formulários
+O mesmo cabeçalho e rodapé da Aula 25 (agora com `include_once`), usados em páginas com formulários.
+- `index.php` e `processaNome.php`: busca de um nome enviada por `GET`.
+- `contato.php` e `processaContato.php`: formulário de contato enviado por `POST`, que usa `trim()` nos campos e valida o e-mail com `filter_var()` e `FILTER_VALIDATE_EMAIL`.
 
 ## Como executar
 
@@ -144,5 +154,11 @@ Por exemplo, `http://localhost:8000/html/contato.html`.
 Na Aula 22, inicie o servidor na pasta de cada atividade e abra o `index.html` (ou `login-get.html` / `login-post.html`, na atividade-02).
 
 As Aulas 23 e 24 voltam a rodar pelo terminal, como as primeiras aulas.
+
+Nas Aulas 25 e 26, inicie o servidor na pasta da aula e abra o `index.php`:
+
+```bash
+php -S localhost:8000 -t Aulas_php/Aula_26
+```
 
 Algumas atividades da Aula 17 usam `array_last()`, que precisa do PHP 8.5 ou mais recente.
