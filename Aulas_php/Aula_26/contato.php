@@ -6,16 +6,22 @@
         <label  for="nomeUsuario">Nome: </label>
         <input  type="text"
                 id="nomeUsuario"
-                name="nomeUsuario"
-                required>
+                name="nomeUsuario">
                 
         <br><br>
 
         <label  for="emailUsuario">Email: </label>
         <input  type="text"
                 name="emailUsuario"
-                id="emailUsuario"
-                required>
+                id="emailUsuario">
+
+        <br><br>
+
+        <label  for="qtdFunc">Digite a quantidade de funcionarios: </label>
+        <input  type="number"
+                name="qtdFunc"
+                id="qtdFunc"
+                step="1">
 
         <br><br>
 

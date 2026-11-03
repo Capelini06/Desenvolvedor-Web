@@ -122,8 +122,14 @@ Separação das partes que se repetem em todas as páginas em arquivos próprios
 
 ### [Aula 26](Aulas_php/Aula_26/) – `include` com formulários
 O mesmo cabeçalho e rodapé da Aula 25 (agora com `include_once`), usados em páginas com formulários.
-- `index.php` e `processaNome.php`: busca de um nome enviada por `GET`.
-- `contato.php` e `processaContato.php`: formulário de contato enviado por `POST`, que usa `trim()` nos campos e valida o e-mail com `filter_var()` e `FILTER_VALIDATE_EMAIL`.
+- `index.php` e `processaNome.php`: busca de um nome enviada por `GET`, que confere se o campo chegou com `isset()`, recusa a busca vazia com `trim()` e `empty()` e mostra o termo com `htmlspecialchars()`.
+- `contato.php` e `processaContato.php`: formulário de contato enviado por `POST` com nome, e-mail e quantidade de funcionários. O PHP confere se a página foi aberta pelo formulário (`$_SERVER["REQUEST_METHOD"]`), valida o e-mail com `filter_var()` e `FILTER_VALIDATE_EMAIL` e aceita só números inteiros de 1 a 100 na quantidade, usando `ctype_digit()`.
+
+### [Aula 27](Aulas_php/Aula_27/) – Banco de dados com PDO
+Primeira conexão do PHP com um banco de dados MySQL.
+- `config/conexao.php`: conecta ao banco `escola_web` com `PDO`, ativando o modo de erro `PDO::ERRMODE_EXCEPTION` e tratando falhas de conexão com `try` / `catch`.
+- `alunos.php`: busca os alunos com `SELECT id, nome, curso FROM alunos`, usando `query()` e `fetchAll()`, e mostra o resultado em uma tabela (ou uma mensagem quando não há alunos cadastrados).
+- `include/`: cabeçalho, com o menu e o logo do Senac (`static/senac.png`), e rodapé das páginas.
 
 ## Como executar
 
@@ -159,6 +165,24 @@ Nas Aulas 25 e 26, inicie o servidor na pasta da aula e abra o `index.php`:
 
 ```bash
 php -S localhost:8000 -t Aulas_php/Aula_26
+```
+
+A Aula 27 precisa de um servidor MySQL rodando (por exemplo, pelo XAMPP), com o banco `escola_web` e a tabela `alunos`. O usuário é `root` sem senha, como definido em `config/conexao.php`:
+
+```sql
+CREATE DATABASE escola_web;
+USE escola_web;
+CREATE TABLE alunos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    curso VARCHAR(100) NOT NULL
+);
+```
+
+Depois inicie o servidor na pasta da aula e abra `http://localhost:8000/alunos.php`:
+
+```bash
+php -S localhost:8000 -t Aulas_php/Aula_27
 ```
 
 Algumas atividades da Aula 17 usam `array_last()`, que precisa do PHP 8.5 ou mais recente.

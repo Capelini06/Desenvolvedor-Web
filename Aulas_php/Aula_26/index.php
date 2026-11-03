@@ -6,8 +6,7 @@
         <label  for="nomeBusca">Quer buscar um nome?: </label>
         <input  type="text" 
                 name="nomeUsuario"
-                id="nomeUsuario"
-                required>
+                id="nomeUsuario">
         <button type="submit">ENVIAR</button>
     </form>
 </main>
