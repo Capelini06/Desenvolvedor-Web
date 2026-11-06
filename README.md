@@ -126,10 +126,13 @@ O mesmo cabeçalho e rodapé da Aula 25 (agora com `include_once`), usados em p�
 - `contato.php` e `processaContato.php`: formulário de contato enviado por `POST` com nome, e-mail e quantidade de funcionários. O PHP confere se a página foi aberta pelo formulário (`$_SERVER["REQUEST_METHOD"]`), valida o e-mail com `filter_var()` e `FILTER_VALIDATE_EMAIL` e aceita só números inteiros de 1 a 100 na quantidade, usando `ctype_digit()`.
 
 ### [Aula 27](Aulas_php/Aula_27/) – Banco de dados com PDO
-Primeira conexão do PHP com um banco de dados MySQL.
+Primeira conexão do PHP com um banco de dados MySQL, chegando a um cadastro de alunos completo: listar, cadastrar, editar e excluir. Os comandos que recebem dados do usuário usam consultas preparadas, com `prepare()` e `execute()`.
 - `config/conexao.php`: conecta ao banco `escola_web` com `PDO`, ativando o modo de erro `PDO::ERRMODE_EXCEPTION` e tratando falhas de conexão com `try` / `catch`.
-- `alunos.php`: busca os alunos com `SELECT id, nome, curso FROM alunos`, usando `query()` e `fetchAll()`, e mostra o resultado em uma tabela (ou uma mensagem quando não há alunos cadastrados).
-- `include/`: cabeçalho, com o menu e o logo do Senac (`static/senac.png`), e rodapé das páginas.
+- `alunos.php`: busca os alunos com `SELECT`, usando `query()` e `fetchAll()`, e mostra o resultado em uma tabela com links para editar e excluir (ou uma mensagem quando não há alunos cadastrados). Também exibe o resultado da exclusão, lido de `$_GET`.
+- `cadastrarAluno.php` e `salvarAluno.php`: formulário com nome, e-mail e curso, enviado por `POST` e gravado com `INSERT`.
+- `editarAluno.php` e `atualizarAluno.php`: valida o `id` da URL com `filter_input()` e `FILTER_VALIDATE_INT`, carrega os dados do aluno no formulário com `fetch()` e, ao enviar, confere os campos e grava as alterações com `UPDATE`.
+- `confirmarExclusao.php` e `excluirAluno.php`: mostra os dados do aluno e pede confirmação antes de apagar com `DELETE`. Depois usa `rowCount()` para saber se algum registro foi removido e volta para a listagem com `header("Location: ...")`.
+- `include/`: cabeçalho, com o menu e o logo do Senac (`static/images/senac.png`), e rodapé das páginas.
 
 ## Como executar
 
@@ -175,9 +178,14 @@ USE escola_web;
 CREATE TABLE alunos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    curso VARCHAR(100) NOT NULL
+    idade INT NULL,
+    cidade VARCHAR(100) NULL,
+    curso VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL
 );
 ```
+
+`idade` e `cidade` aceitam valor vazio porque o formulário de cadastro não pede esses campos; eles são preenchidos depois, na edição do aluno.
 
 Depois inicie o servidor na pasta da aula e abra `http://localhost:8000/alunos.php`:
 

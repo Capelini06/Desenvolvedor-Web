@@ -10,8 +10,8 @@
     <header>
         <h1>Lista de alunos</h1>
         <nav>
-            <a href="#index">Inicio</a>
-            <a href="../alunos.php">Listar alunos</a>
+            <a href="../cadastrarAluno.php">Cadastrar Alunos</a>
+            <a href="../alunos.php">Listar Alunos</a>
         </nav>
-        <img src="../static/senac.png" alt="Logo Senac" style="width: 200px;">
+        <img src="../static/images/senac.png" alt="Logo Senac" style="width: 200px;">
     </header>
