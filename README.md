@@ -2,6 +2,8 @@
 
 Repositório com as atividades feitas durante o curso de Desenvolvedor Web. As aulas estão separadas em duas pastas: [Aulas_html_css/](Aulas_html_css/) (front-end com HTML e CSS) e [Aulas_php/](Aulas_php/) (lógica de programação com PHP).
 
+A partir da Aula 28, as aulas passam a ser usadas para construir um projeto completo: a loja virtual [Vitta Sports](Projeto_vita_sports/). O andamento do projeto, aula por aula, está na seção [Projeto Vitta Sports](#projeto-vitta-sports).
+
 ## Aulas de HTML e CSS
 
 ### [Aula 01](Aulas_html_css/Aula_01/) – Primeira página
@@ -134,6 +136,48 @@ Primeira conexão do PHP com um banco de dados MySQL, chegando a um cadastro de 
 - `confirmarExclusao.php` e `excluirAluno.php`: mostra os dados do aluno e pede confirmação antes de apagar com `DELETE`. Depois usa `rowCount()` para saber se algum registro foi removido e volta para a listagem com `header("Location: ...")`.
 - `include/`: cabeçalho, com o menu e o logo do Senac (`static/images/senac.png`), e rodapé das páginas.
 
+## Projeto Vitta Sports
+
+Loja virtual de roupas esportivas, feita em PHP com banco de dados MySQL. O site terá uma página inicial com produtos em destaque, uma loja, a página de cada produto, login de usuários e uma área de administração.
+
+### Estrutura
+
+| Arquivo | Função |
+| --- | --- |
+| [index.php](Projeto_vita_sports/index.php) | Página inicial |
+| [conexao.php](Projeto_vita_sports/conexao.php) | Conexão com o banco `vita_sports` |
+| [banco.sql](Projeto_vita_sports/banco.sql) | Script de criação do banco e das tabelas |
+| [include/cabecalho.php](Projeto_vita_sports/include/cabecalho.php) | Cabeçalho com logo e menu (Início, Loja, Entrar) |
+| [include/rodape.php](Projeto_vita_sports/include/rodape.php) | Rodapé do site |
+| [include/funcoes.php](Projeto_vita_sports/include/funcoes.php) | Funções usadas em várias páginas |
+| [assets/css/style.css](Projeto_vita_sports/assets/css/style.css) | Estilos do site |
+
+### Diário do projeto
+
+#### Aula 28 – Início do projeto
+
+##### Criado
+
+- Estrutura de pastas do projeto (`include/` e `assets/css/`).
+- `include/cabecalho.php`: início do HTML, título "Vitta Sports", link para o CSS e menu com Início, Loja e Entrar.
+- `include/rodape.php`: rodapé com o slogan "Movimento, conforto e atitude" e o fechamento do HTML.
+- `include/funcoes.php`, com duas funções:
+  - `e()`: atalho para `htmlspecialchars()`, usado para exibir textos com segurança (aceita `null` com `?string`).
+  - `exigirAdmin()`: inicia a sessão, se ainda não estiver ativa, e manda para o `login.php` quem não estiver logado como administrador (`$_SESSION["tipo"]` diferente de `"admin"`).
+- `conexao.php`: conexão com `PDO`, com o modo de erro por exceção, resultados como vetor associativo (`PDO::FETCH_ASSOC`) e consultas preparadas reais (`PDO::ATTR_EMULATE_PREPARES => false`). Se a conexão falhar, o erro vai para o log com `error_log()` e o usuário vê só uma mensagem genérica.
+- `index.php`: página inicial com a seção de destaque ("Vista seu movimento") e a lista de produtos em destaque, montada com `foreach`, mostrando nome e preço formatado com `number_format()` e um link para `produto.php?id=...`.
+- `banco.sql` e `assets/css/style.css`: arquivos criados, ainda vazios.
+
+##### Pendente
+
+- Escrever o `banco.sql` com o banco `vita_sports` e a tabela de produtos.
+- Buscar os produtos no banco: o `index.php` usa a variável `$produtos`, que ainda não é preenchida.
+- Ajustar o caminho da conexão: o `index.php` procura `./config/conexao.php`, mas o arquivo está na raiz do projeto.
+- Corrigir o charset da conexão para `utf8mb4` (está escrito `utf8m4`).
+- Trocar os links que ainda apontam para `.html` (`index.html` no logo e `loja.html` no botão "Explorar coleção") pelas páginas `.php`.
+- Criar as páginas `loja.php`, `produto.php` e `login.php`.
+- Escrever o CSS do site.
+
 ## Como executar
 
 **HTML e CSS:** abra o arquivo `index.html` da aula no navegador (ou use a extensão Live Server do VS Code).
@@ -191,6 +235,12 @@ Depois inicie o servidor na pasta da aula e abra `http://localhost:8000/alunos.p
 
 ```bash
 php -S localhost:8000 -t Aulas_php/Aula_27
+```
+
+O **Projeto Vitta Sports** também precisa do MySQL, com o banco `vita_sports` criado a partir do `banco.sql` (usuário `root` sem senha, como definido em `conexao.php`). Depois inicie o servidor na pasta do projeto e abra `http://localhost:8000`:
+
+```bash
+php -S localhost:8000 -t Projeto_vita_sports
 ```
 
 Algumas atividades da Aula 17 usam `array_last()`, que precisa do PHP 8.5 ou mais recente.

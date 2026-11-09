@@ -1,0 +1,17 @@
+<?php
+
+function e(?string $valor): string{
+    return htmlspecialchars($valor ?? "", ENT_QUOTES, "UTF-8");
+}
+
+function exigirAdmin(): void{
+    if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+    if(!isset(
+        $_SESSION["usuario_id"]) 
+        ||
+        ($_SESSION["tipo"] ?? "")
+        !== "admin"){
+            header("Location: ../login.php");
+            exit;
+        }
+}
