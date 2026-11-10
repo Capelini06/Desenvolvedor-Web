@@ -144,13 +144,15 @@ Loja virtual de roupas esportivas, feita em PHP com banco de dados MySQL. O site
 
 | Arquivo | Função |
 | --- | --- |
-| [index.php](Projeto_vita_sports/index.php) | Página inicial |
-| [conexao.php](Projeto_vita_sports/conexao.php) | Conexão com o banco `vita_sports` |
+| [index.php](Projeto_vita_sports/index.php) | Página inicial com os produtos em destaque |
+| [cadastro.php](Projeto_vita_sports/cadastro.php) | Cadastro de novos clientes |
+| [config/conexao.php](Projeto_vita_sports/config/conexao.php) | Conexão com o banco `vita_sports` |
 | [banco.sql](Projeto_vita_sports/banco.sql) | Script de criação do banco e das tabelas |
 | [include/cabecalho.php](Projeto_vita_sports/include/cabecalho.php) | Cabeçalho com logo e menu (Início, Loja, Entrar) |
 | [include/rodape.php](Projeto_vita_sports/include/rodape.php) | Rodapé do site |
 | [include/funcoes.php](Projeto_vita_sports/include/funcoes.php) | Funções usadas em várias páginas |
 | [assets/css/style.css](Projeto_vita_sports/assets/css/style.css) | Estilos do site |
+| `admin/`, `auth/` e `assets/images/` | Pastas criadas para a área de administração, o login e as imagens (ainda vazias) |
 
 ### Diário do projeto
 
@@ -166,17 +168,44 @@ Loja virtual de roupas esportivas, feita em PHP com banco de dados MySQL. O site
   - `exigirAdmin()`: inicia a sessão, se ainda não estiver ativa, e manda para o `login.php` quem não estiver logado como administrador (`$_SESSION["tipo"]` diferente de `"admin"`).
 - `conexao.php`: conexão com `PDO`, com o modo de erro por exceção, resultados como vetor associativo (`PDO::FETCH_ASSOC`) e consultas preparadas reais (`PDO::ATTR_EMULATE_PREPARES => false`). Se a conexão falhar, o erro vai para o log com `error_log()` e o usuário vê só uma mensagem genérica.
 - `index.php`: página inicial com a seção de destaque ("Vista seu movimento") e a lista de produtos em destaque, montada com `foreach`, mostrando nome e preço formatado com `number_format()` e um link para `produto.php?id=...`.
-- `banco.sql` e `assets/css/style.css`: arquivos criados, ainda vazios.
+- `banco.sql`: cria o banco `vita_sports` com as tabelas `Usuarios` (com `tipo_usuario` do tipo `ENUM("admin", "cliente")`), `Produtos` (preço, estoque, descrição, imagem e tamanho, ligada a uma categoria por chave estrangeira) e `Categorias`.
+- `assets/css/style.css`: arquivo criado, ainda vazio.
+
+#### Aula 29 – Estilo, produtos do banco e cadastro
+
+##### Alterado
+
+- `conexao.php` foi movido para `config/conexao.php`, o caminho que o `index.php` já usava, e o charset foi corrigido para `utf8mb4`.
+- `index.php`: agora busca os 3 produtos mais recentes no banco com `query()` e `fetchAll()` (`ORDER BY id DESC LIMIT 3`) para preencher a lista de destaques.
+- `include/cabecalho.php`: o link "Entrar" do menu passou a abrir o `cadastro.php`.
+- `include/rodape.php`: slogan destacado com `<strong>` e `<em>`.
+- `include/funcoes.php`: comentários explicando a função `exigirAdmin()`.
+
+##### Criado
+
+- `assets/css/style.css`: estilos do site inteiro, com as fontes Barlow Condensed e Inter (Google Fonts) e variáveis de cores no `:root`. Tem estilos para o cabeçalho, a seção de destaque (`.hero`), os cards de produto, os botões, o rodapé, as páginas de login e cadastro (incluindo as mensagens de erro e sucesso) e a futura área de administração (formulários e tabelas).
+- `cadastro.php`: formulário de cadastro com nome, e-mail, senha e confirmação de senha. Ao enviar por `POST`, o PHP:
+  - valida os campos: nome preenchido, e-mail válido com `filter_var()`, senha com pelo menos 8 caracteres e as duas senhas iguais. Os erros são guardados em um vetor e exibidos acima do formulário;
+  - consulta o banco para não deixar cadastrar o mesmo e-mail duas vezes;
+  - guarda a senha criptografada com `password_hash()` e grava o usuário como `cliente` com `INSERT`;
+  - trata os erros do banco com `try` / `catch`, mostrando só uma mensagem genérica.
+- Pastas `admin/`, `auth/` e `assets/images/`, ainda vazias.
 
 ##### Pendente
 
-- Escrever o `banco.sql` com o banco `vita_sports` e a tabela de produtos.
-- Buscar os produtos no banco: o `index.php` usa a variável `$produtos`, que ainda não é preenchida.
-- Ajustar o caminho da conexão: o `index.php` procura `./config/conexao.php`, mas o arquivo está na raiz do projeto.
-- Corrigir o charset da conexão para `utf8mb4` (está escrito `utf8m4`).
-- Trocar os links que ainda apontam para `.html` (`index.html` no logo e `loja.html` no botão "Explorar coleção") pelas páginas `.php`.
+- `banco.sql`:
+  - a chave estrangeira de `Produtos` aponta para `Categoriascategorias`, e a tabela `Categorias` é criada depois de `Produtos`. Ela precisa vir antes e a referência deve ser `Categorias(id_categoria)`;
+  - os nomes das colunas não batem com o PHP: o banco usa `id_usuario`, `nome_usuario`, `id_produto` e `nome_produto`, mas o código usa `id` e `nome`;
+  - `criado_em` é obrigatório e não tem valor padrão (pode usar `DEFAULT CURRENT_TIMESTAMP`), então o `INSERT` do cadastro falharia.
+- `cadastro.php`:
+  - o formulário envia para `login.php` (`action="login.php"`), então a validação do próprio `cadastro.php` nunca roda. Deve enviar para a própria página;
+  - o caminho `__DIR__ . "./config/conexao.php"` gera `...Projeto_vita_sports./config/...`. O certo é `__DIR__ . "/config/conexao.php"`;
+  - o `INSERT` usa o marcador `:tipo_usuario`, mas os valores são enviados como `:tipo`;
+  - as classes das mensagens (`auth_error` e `auth-sucesso`) não são as mesmas do CSS (`auth-error` e `auth-success`);
+  - as senhas não devem voltar preenchidas no formulário (`value="<?= e($senha) ?>"`);
+  - corrigir os textos "Entrer" e "confog/conexao. php".
+- Trocar os links que ainda apontam para `.html` (`loja.html` no botão "Explorar coleção") pelas páginas `.php`.
 - Criar as páginas `loja.php`, `produto.php` e `login.php`.
-- Escrever o CSS do site.
 
 ## Como executar
 
@@ -237,7 +266,7 @@ Depois inicie o servidor na pasta da aula e abra `http://localhost:8000/alunos.p
 php -S localhost:8000 -t Aulas_php/Aula_27
 ```
 
-O **Projeto Vitta Sports** também precisa do MySQL, com o banco `vita_sports` criado a partir do `banco.sql` (usuário `root` sem senha, como definido em `conexao.php`). Depois inicie o servidor na pasta do projeto e abra `http://localhost:8000`:
+O **Projeto Vitta Sports** também precisa do MySQL, com o banco `vita_sports` criado a partir do `banco.sql` (usuário `root` sem senha, como definido em `config/conexao.php`). Depois inicie o servidor na pasta do projeto e abra `http://localhost:8000`:
 
 ```bash
 php -S localhost:8000 -t Projeto_vita_sports

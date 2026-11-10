@@ -1,8 +1,11 @@
-<?php 
-include "./include/cabecalho.php"; 
+<?php
+include "./include/cabecalho.php";
 require "./include/funcoes.php";
 require "./config/conexao.php";
+
+$produtos = $pdo->query("SELECT id, nome, preco, descricao FROM produtos ORDER BY id DESC LIMIT 3")->fetchAll();
 ?>
+
 <main>
     <section class="hero">
         <div>
@@ -22,21 +25,21 @@ require "./config/conexao.php";
         <h2>Produto em destaque</h2>
         <div class="products">
 
-        <?php foreach($produtos as $p): ?>
-            <a href="produto.php?id=<?= (int) $p["id"]?>" class= "product">
-                <div class="visual">
-                    VITTA / <?= (int)$p["id"] ?>
-                </div>
-                <h3>
-                    <?=e($p["nome"]) ?>
-                </h3>
-                <b>
-                    R$ <?= number_format((float)$p["preco"], 2, ",", ".") ?>
-                </b>
-            </a>
+            <?php foreach ($produtos as $p): ?>
+                <a href="produto.php?id=<?= (int) $p["id"] ?>" class="product">
+                    <div class="visual">
+                        VITTA / <?= (int) $p["id"] ?>
+                    </div>
+                    <h3>
+                        <?= e($p["nome"]) ?>
+                    </h3>
+                    <b>
+                        R$ <?= number_format((float) $p["preco"], 2, ",", ".") ?>
+                    </b>
+                </a>
             <?php endforeach; ?>
 
         </div>
     </section>
 </main>
-<?php include "include/rodape.php" ?>
+<?php include "./include/rodape.php" ?>

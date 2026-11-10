@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --dark: #1d231d;
+    --lime: #d6ff36;
+    --paper: #f2f3ee;
+    --muted: #72796f;
+    --line: #d9ddd4
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--dark);
+    font-family: Inter, Arial, sans-serif
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+.site-header {
+    height: 78px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line)
+}
+
+.logo {
+    font: 900 30px 'Barlow Condensed';
+    letter-spacing: -1px
+}
+
+.logo span {
+    font-weight: 600;
+    margin-left: 5px
+}
+
+nav {
+    display: flex;
+    gap: 26px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase
+}
+
+.hero {
+    min-height: 540px;
+    background: #202720;
+    color: white;
+    padding: 85px 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.hero small,
+.section>small,
+.login small {
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #859078
+}
+
+.hero small {
+    color: var(--lime)
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0
+}
+
+.auth-extra {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.auth-extra a {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.auth-message {
+    padding: 10px 12px;
+    margin: 12px 0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.auth-error {
+    background: #fff0f0;
+    color: #9b1c1c;
+}
+
+.auth-success {
+    background: #edf8ef;
+    color: #176b2c;
+}
+
+.login form input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero h1,
+.login h1 {
+    font: 900 clamp(60px, 9vw, 112px)/.83 'Barlow Condensed';
+    letter-spacing: -2px;
+    margin: 20px 0
+}
+
+.hero p {
+    color: #c5cbbf;
+    max-width: 400px;
+    line-height: 1.7
+}
+
+.hero em,
+.login em {
+    color: var(--lime);
+    font-style: normal
+}
+
+.hero-art {
+    font: 900 65px/.8 'Barlow Condensed';
+    color: var(--lime);
+    transform: rotate(-8deg)
+}
+
+.btn {
+    display: inline-block;
+    border: 0;
+    background: var(--dark);
+    color: white;
+    padding: 15px 22px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer
+}
+
+.btn.light {
+    background: var(--lime);
+    color: var(--dark)
+}
+
+.section {
+    padding: 75px 7%
+}
+
+.section h1,
+.section h2 {
+    font: 700 clamp(40px, 6vw, 65px)/.95 'Barlow Condensed';
+    margin: 10px 0 30px
+}
+
+.tiles,
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px
+}
+
+.tiles a {
+    min-height: 250px;
+    padding: 24px;
+    background: linear-gradient(140deg, #596252, #222a22);
+    color: white;
+    font-size: 11px;
+    letter-spacing: 1px
+}
+
+.tiles a:nth-child(2) {
+    background: linear-gradient(140deg, #777e70, #343a32)
+}
+
+.tiles a:nth-child(3) {
+    background: linear-gradient(140deg, #9ba391, #4b5248)
+}
+
+.tiles h3 {
+    font: 700 42px 'Barlow Condensed';
+    margin-top: 130px
+}
+
+.product {
+    display: block
+}
+
+.visual {
+    height: 300px;
+    background: linear-gradient(145deg, #d7dccf, #9da695);
+    padding: 18px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    position: relative
+}
+
+.visual:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -42%);
+    width: 145px;
+    height: 195px;
+    background: linear-gradient(110deg, #30372f, #65705d, #252b24);
+    clip-path: polygon(25% 0, 42% 7%, 58% 7%, 75% 0, 100% 18%, 83% 39%, 73% 31%, 78% 100%, 22% 100%, 27% 31%, 17% 39%, 0 18%)
+}
+
+.v2:after {
+    height: 140px;
+    width: 170px;
+    clip-path: polygon(12% 0, 88% 0, 100% 100%, 56% 100%, 50% 38%, 44% 100%, 0 100%)
+}
+
+.v3:after {
+    background: #777f6e
+}
+
+.product h3 {
+    font-size: 15px;
+    margin: 15px 0 6px
+}
+
+.product b {
+    font-size: 13px
+}
+
+.notice {
+    background: #e5e9dd;
+    padding: 14px;
+    color: #62695e;
+    font-size: 13px;
+    margin-top: 25px
+}
+
+.footer {
+    background: #1b201b;
+    color: white;
+    padding: 32px 7%;
+    font-size: 13px
+}
+
+.detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7%;
+    align-items: center
+}
+
+.large {
+    height: 480px
+}
+
+.detail label,
+.adminform label,
+.login label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 12px 0 6px
+}
+
+.detail select {
+    padding: 12px;
+    width: 100%;
+    max-width: 220px
+}
+
+.login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px
+}
+
+.login>section {
+    background: #202720;
+    color: white;
+    padding: 75px 9%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.login form {
+    padding: 75px 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.login h2 {
+    font: 700 45px 'Barlow Condensed'
+}
+
+.login input,
+.adminform input,
+.adminform textarea,
+.adminform select,
+.search input {
+    padding: 13px;
+    border: 1px solid var(--line);
+    font: inherit;
+    background: white
+}
+
+.login button {
+    margin-top: 20px
+}
+
+.search {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0
+}
+
+.search input {
+    width: min(500px, 70%)
+}
+
+.narrow {
+    max-width: 850px;
+    margin: auto
+}
+
+.adminform {
+    display: grid;
+    gap: 8px;
+    max-width: 650px
+}
+
+.adminform textarea {
+    min-height: 90px
+}
+
+.adminform button {
+    margin-top: 14px
+}
+
+.tablewrap {
+    overflow: auto
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: white
+}
+
+td,
+th {
+    text-align: left;
+    padding: 13px;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px
+}
+
+th {
+    background: #e5e9dd;
+    font-size: 11px;
+    text-transform: uppercase
+}
+
+.danger {
+    background: #9c3029
+}
+
+@media(max-width:750px) {
+    .site-header {
+        padding: 15px 5%;
+        height: auto;
+        gap: 15px;
+        flex-wrap: wrap
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px
+    }
+
+    .hero {
+        padding: 65px 7%
+    }
+
+    .hero-art {
+        display: none
+    }
+
+    .tiles,
+    .products {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .detail,
+    .login {
+        grid-template-columns: 1fr
+    }
+
+    .large {
+        height: 360px
+    }
+
+    .login>section {
+        min-height: 330px
+    }
+
+    .login form {
+        padding: 55px 8%
+    }
+}
+
+@media(max-width:500px) {
+
+    .tiles,
+    .products {
+        grid-template-columns: 1fr
+    }
+
+    .visual {
+        height: 340px
+    }
+
+    .section {
+        padding: 55px 6%
+    }
+
+    .hero h1 {
+        font-size: 65px
+    }
+}
