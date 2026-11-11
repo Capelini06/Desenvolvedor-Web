@@ -32,10 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (empty($erros)) {
         try {
-            require_once __DIR__ . "./config/conexao.php";
+            require_once __DIR__ . "/config/conexao.php";
+            
             if (!isset($pdo) || !($pdo instanceof PDO)) {
                 throw new RuntimeException(
-                    "A conexão não foi encontrada. Verifique se confog/conexao. php cria a variavel $pdo"
+                    "A conexão não foi encontrada. Verifique se config/conexao.php cria a variável \$pdo"
                 );
             }
             
@@ -48,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 // password_hash criptografa a senha oara hash
                 $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-                $sql = "INSERT INTO usuarios (nome, email, senha, tipo_usuario) VALUES (:nome, :email, :senha, :tipo_usuario)";
+                $sql = "INSERT INTO usuarios (nome, email, senha, tipo_usuario) VALUES (:nome, :email, :senha, :tipo)";
                 $inserir = $pdo->prepare($sql);
                 $inserir->execute([
                     ":nome" => $nome,
@@ -69,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 require "./include/funcoes.php";
-require "./config/conexao.php";
 include "./include/cabecalho.php";
 ?>
 
@@ -81,8 +81,10 @@ include "./include/cabecalho.php";
             <br>PASSO COMEÇA <br>
             <em>AQUI</em>
         </h1>
+
         <p>Crie sua conta e acompanhe sua experiência na Vitta Sports.</p>
-        <form action="login.php" method="post">
+        
+        <form action="cadastro.php" method="post">
             <small>NOVA CONTA</small>
             <h2>Cadastre-se:</h2>
             <?php if(!empty($erros)): ?>
@@ -92,16 +94,16 @@ include "./include/cabecalho.php";
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
-
+    
             <?php if($sucesso !== ""): ?>
                 <div class="auth-message auth-sucesso">
                     <?= e($sucesso) ?>
                     <p>
-                        <a href="cadastro.php">Ir para o Login.</a>
+                        <a href="login.php">Ir para o Login.</a>
                     </p>
                 </div>
             <?php endif; ?>
-
+    
             <label  for="nome">Nome Completo:</label>
             <input  type="text"
                     id="nome"
@@ -109,9 +111,9 @@ include "./include/cabecalho.php";
                     value="<?= e($nome)?>"
                     maxlength="100"
                     required>
-
+    
             <br><br>
-
+    
             <label  for="email">E-mail:</label>
             <input  type="email"
                     id="email"
@@ -119,9 +121,9 @@ include "./include/cabecalho.php";
                     value="<?= e($email) ?>"
                     maxlength="150"
                     required>
-
+    
             <br><br>
-
+    
             <label  for="senha">Senha:</label>
             <input  type="password"
                     id="senha"
@@ -129,9 +131,9 @@ include "./include/cabecalho.php";
                     value="<?= e($senha)?>"
                     minlength="8"
                     required>
-
+    
             <br><br>
-
+    
             <label  for="confirmarSenha">Confirmar Senha:</label>
             <input  type="password"
                     id="confirmarSenha"
@@ -139,17 +141,18 @@ include "./include/cabecalho.php";
                     value="<?= e($confirmarSenha)?>"
                     minlength="8"
                     required>
-
+    
             <br><br>
-
+    
             <button type="submit" class="btn">Criar minha conta</button>
-
+    
             <p class="auth-extra">
                 Já possui uma conta?
-                <a href="login.php">Entrer</a>
+                <a href="login.php">Entrar</a>
             </p>
         </form>
     </section>
 </main>
+
 
 <?php include "./include/rodape.php"; ?>

@@ -145,14 +145,17 @@ Loja virtual de roupas esportivas, feita em PHP com banco de dados MySQL. O site
 | Arquivo | Função |
 | --- | --- |
 | [index.php](Projeto_vita_sports/index.php) | Página inicial com os produtos em destaque |
+| [produtos.php](Projeto_vita_sports/produtos.php) | Página de detalhes de um produto |
 | [cadastro.php](Projeto_vita_sports/cadastro.php) | Cadastro de novos clientes |
+| [login.php](Projeto_vita_sports/login.php) | Formulário de login |
+| [auth/autenticar.php](Projeto_vita_sports/auth/autenticar.php) | Confere o e-mail e a senha e inicia a sessão do usuário |
 | [config/conexao.php](Projeto_vita_sports/config/conexao.php) | Conexão com o banco `vita_sports` |
-| [banco.sql](Projeto_vita_sports/banco.sql) | Script de criação do banco e das tabelas |
-| [include/cabecalho.php](Projeto_vita_sports/include/cabecalho.php) | Cabeçalho com logo e menu (Início, Loja, Entrar) |
+| [banco.sql](Projeto_vita_sports/banco.sql) | Script de criação do banco, das tabelas e dos dados de exemplo |
+| [include/cabecalho.php](Projeto_vita_sports/include/cabecalho.php) | Cabeçalho com logo e menu (Início, Loja, Entrar, Cadastrar) |
 | [include/rodape.php](Projeto_vita_sports/include/rodape.php) | Rodapé do site |
 | [include/funcoes.php](Projeto_vita_sports/include/funcoes.php) | Funções usadas em várias páginas |
 | [assets/css/style.css](Projeto_vita_sports/assets/css/style.css) | Estilos do site |
-| `admin/`, `auth/` e `assets/images/` | Pastas criadas para a área de administração, o login e as imagens (ainda vazias) |
+| `admin/` e `assets/images/` | Pastas criadas para a área de administração e as imagens (ainda vazias) |
 
 ### Diário do projeto
 
@@ -206,6 +209,43 @@ Loja virtual de roupas esportivas, feita em PHP com banco de dados MySQL. O site
   - corrigir os textos "Entrer" e "confog/conexao. php".
 - Trocar os links que ainda apontam para `.html` (`loja.html` no botão "Explorar coleção") pelas páginas `.php`.
 - Criar as páginas `loja.php`, `produto.php` e `login.php`.
+
+#### Aula 30 – Correções, login e página do produto
+
+##### Corrigido
+
+- `banco.sql`:
+  - a tabela `Categorias` agora é criada antes de `Produtos`, com `AUTO_INCREMENT` no `id_categoria`, e a chave estrangeira aponta para `Categorias(id_categoria)`;
+  - as colunas foram renomeadas para bater com o PHP: `id` e `nome` em `Usuarios` e em `Produtos`;
+  - `criado_em` passou a ter `DEFAULT CURRENT_TIMESTAMP` nas duas tabelas, então o `INSERT` do cadastro não precisa mais informar a data;
+  - `imagem_url` deixou de ser `longblob` e virou `VARCHAR(255)`, guardando só o caminho da imagem.
+- `cadastro.php`:
+  - o formulário agora envia para a própria página (`action="cadastro.php"`), então a validação passa a rodar;
+  - caminho da conexão corrigido para `__DIR__ . "/config/conexao.php"`, e a conexão deixou de ser carregada duas vezes;
+  - o marcador do `INSERT` passou a ser `:tipo`, igual ao valor enviado no `execute()`;
+  - a mensagem de sucesso leva para o `login.php`, e os textos "Entrer" e "confog/conexao. php" foram corrigidos.
+- `config/conexao.php`: a senha do banco passou a se chamar `$senhaBanco`, para não sobrescrever a variável `$senha` do formulário de cadastro.
+- `index.php`: o botão "Explorar coleção" usa as classes `btn light` (as mesmas do CSS) e os cards de produto levam para `produtos.php?id=...`.
+- `include/cabecalho.php`: o menu ganhou o link "Cadastrar", e "Entrar" passou a abrir o `login.php`.
+
+##### Criado
+
+- `banco.sql`: dados de exemplo, com três categorias (Camisetas, Calças e Shorts, Acessórios) e três produtos.
+- `login.php`: formulário de login com e-mail e senha, enviado por `POST` para `auth/autenticar.php`. Quando a URL tem `?erro=1`, mostra o aviso "Email ou senha inválidos".
+- `auth/autenticar.php`: processa o login:
+  - aceita só requisições `POST` (senão volta para o `login.php`) e valida o e-mail com `filter_input()` e `FILTER_VALIDATE_EMAIL`;
+  - busca o usuário pelo e-mail com uma consulta preparada e confere a senha com `password_verify()`;
+  - se der certo, gera um novo id de sessão com `session_regenerate_id(true)`, guarda o id, o nome e o tipo do usuário em `$_SESSION` e manda para `admin/produtos.php`.
+- `produtos.php`: página de um produto, que valida o `id` da URL com `filter_input()` e `FILTER_VALIDATE_INT` e busca o produto junto com o nome da categoria usando `INNER JOIN`. Mostra categoria, nome, preço, tamanho e estoque, ou "Produto não encontrado!" quando o `id` não existe.
+
+##### Pendente
+
+- `cadastro.php`:
+  - as classes das mensagens (`auth_error` e `auth-sucesso`) ainda não são as mesmas do CSS (`auth-error` e `auth-success`);
+  - as senhas ainda voltam preenchidas no formulário (`value="<?= e($senha) ?>"`).
+- `auth/autenticar.php` manda para `admin/produtos.php`, que ainda não existe. Clientes também são enviados para lá; só administradores deveriam ir para a área de administração.
+- `banco.sql`: os produtos de exemplo usam imagens em `assets/img/`, mas a pasta do projeto é `assets/images/`. O arquivo também tem um `select * from usuarios;` de teste no meio do script.
+- Criar a página `loja.php`, que já está no menu e no botão "Explorar coleção".
 
 ## Como executar
 
@@ -266,7 +306,7 @@ Depois inicie o servidor na pasta da aula e abra `http://localhost:8000/alunos.p
 php -S localhost:8000 -t Aulas_php/Aula_27
 ```
 
-O **Projeto Vitta Sports** também precisa do MySQL, com o banco `vita_sports` criado a partir do `banco.sql` (usuário `root` sem senha, como definido em `config/conexao.php`). Depois inicie o servidor na pasta do projeto e abra `http://localhost:8000`:
+O **Projeto Vitta Sports** também precisa do MySQL, com o banco `vita_sports` criado a partir do `banco.sql`, que também insere as categorias e os produtos de exemplo (usuário `root` sem senha, como definido em `config/conexao.php`). Depois inicie o servidor na pasta do projeto e abra `http://localhost:8000`:
 
 ```bash
 php -S localhost:8000 -t Projeto_vita_sports

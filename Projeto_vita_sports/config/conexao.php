@@ -2,10 +2,10 @@
 $host = "localhost";
 $banco = "vita_sports";
 $user = "root";
-$senha = "";
+$senhaBanco = "";
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$banco;charset=utf8mb4", $user, $senha,
+    $pdo = new PDO("mysql:host=$host;dbname=$banco;charset=utf8mb4", $user, $senhaBanco,
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES => false]);

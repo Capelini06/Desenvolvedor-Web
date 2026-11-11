@@ -12,6 +12,7 @@
         <nav>
             <a href="index.php">Início</a>
             <a href="loja.php">Loja</a>
-            <a href="cadastro.php">Entrar</a>
+            <a href="login.php">Entrar</a>
+            <a href="cadastro.php">Cadastrar</a>
         </nav>
     </header>
