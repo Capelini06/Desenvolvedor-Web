@@ -31,7 +31,5 @@ $_SESSION["usuario_id"] = (int)$usuario["id"];
 $_SESSION["usuario_nome"] = $usuario["nome"];
 $_SESSION["tipo"] = $usuario["tipo"];
 
-
-
-header("Location: ../admin/produtos.php");
+header("Location: ../admin/painelProdutos.php");
 exit;

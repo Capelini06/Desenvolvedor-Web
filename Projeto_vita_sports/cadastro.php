@@ -10,8 +10,8 @@ $confirmarSenha = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nome = trim($_POST["nome"] ?? "");
     $email = trim($_POST["email"] ?? "");
-    $senha = trim($_POST["senha"] ?? "");
-    $confirmarSenha = trim($_POST["confirmarSenha"] ?? "");
+    $senha = $_POST["senha"] ?? "";
+    $confirmarSenha = $_POST["confirmarSenha"] ?? "";
 
     //validações
     if ($nome === "") {
@@ -83,12 +83,13 @@ include "./include/cabecalho.php";
         </h1>
 
         <p>Crie sua conta e acompanhe sua experiência na Vitta Sports.</p>
+    </section>
         
         <form action="cadastro.php" method="post">
             <small>NOVA CONTA</small>
             <h2>Cadastre-se:</h2>
             <?php if(!empty($erros)): ?>
-                <div class="auth-message auth_error">
+                <div class="auth-message auth-error" role="alert">
                     <?php foreach($erros as $erro): ?>
                         <p><?= e($erro)?></p>
                     <?php endforeach; ?>
@@ -96,7 +97,7 @@ include "./include/cabecalho.php";
             <?php endif; ?>
     
             <?php if($sucesso !== ""): ?>
-                <div class="auth-message auth-sucesso">
+                <div class="auth-message auth-sucesso" role="status">
                     <?= e($sucesso) ?>
                     <p>
                         <a href="login.php">Ir para o Login.</a>
@@ -109,6 +110,7 @@ include "./include/cabecalho.php";
                     id="nome"
                     name="nome"
                     value="<?= e($nome)?>"
+                    autocomplete="name"
                     maxlength="100"
                     required>
     
@@ -128,7 +130,6 @@ include "./include/cabecalho.php";
             <input  type="password"
                     id="senha"
                     name="senha"
-                    value="<?= e($senha)?>"
                     minlength="8"
                     required>
     
@@ -138,7 +139,6 @@ include "./include/cabecalho.php";
             <input  type="password"
                     id="confirmarSenha"
                     name="confirmarSenha"
-                    value="<?= e($confirmarSenha)?>"
                     minlength="8"
                     required>
     
@@ -151,7 +151,6 @@ include "./include/cabecalho.php";
                 <a href="login.php">Entrar</a>
             </p>
         </form>
-    </section>
 </main>
 
 

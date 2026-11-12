@@ -151,11 +151,14 @@ Loja virtual de roupas esportivas, feita em PHP com banco de dados MySQL. O site
 | [auth/autenticar.php](Projeto_vita_sports/auth/autenticar.php) | Confere o e-mail e a senha e inicia a sessão do usuário |
 | [config/conexao.php](Projeto_vita_sports/config/conexao.php) | Conexão com o banco `vita_sports` |
 | [banco.sql](Projeto_vita_sports/banco.sql) | Script de criação do banco, das tabelas e dos dados de exemplo |
+| [admin/painelProdutos.php](Projeto_vita_sports/admin/painelProdutos.php) | Painel do administrador com a lista de produtos |
+| [admin/form.php](Projeto_vita_sports/admin/form.php) | Formulário para cadastrar ou editar um produto |
+| `admin/salvar.php` e `admin/excluir.php` | Vão gravar e excluir os produtos (criados, ainda vazios) |
 | [include/cabecalho.php](Projeto_vita_sports/include/cabecalho.php) | Cabeçalho com logo e menu (Início, Loja, Entrar, Cadastrar) |
 | [include/rodape.php](Projeto_vita_sports/include/rodape.php) | Rodapé do site |
 | [include/funcoes.php](Projeto_vita_sports/include/funcoes.php) | Funções usadas em várias páginas |
 | [assets/css/style.css](Projeto_vita_sports/assets/css/style.css) | Estilos do site |
-| `admin/` e `assets/images/` | Pastas criadas para a área de administração e as imagens (ainda vazias) |
+| `assets/images/` | Pasta criada para as imagens dos produtos (ainda vazia) |
 
 ### Diário do projeto
 
@@ -247,6 +250,40 @@ Loja virtual de roupas esportivas, feita em PHP com banco de dados MySQL. O site
 - `banco.sql`: os produtos de exemplo usam imagens em `assets/img/`, mas a pasta do projeto é `assets/images/`. O arquivo também tem um `select * from usuarios;` de teste no meio do script.
 - Criar a página `loja.php`, que já está no menu e no botão "Explorar coleção".
 
+#### Aula 31 – Área de administração
+
+##### Corrigido
+
+- `cadastro.php`:
+  - as senhas não voltam mais preenchidas no formulário e deixaram de passar por `trim()`, então espaços no começo ou no fim fazem parte da senha;
+  - a mensagem de erro usa a classe `auth-error`, a mesma do CSS;
+  - o `</section>` da apresentação foi para o lugar certo, logo antes do formulário, que antes ficava dentro dela;
+  - as mensagens ganharam `role="alert"` (erros) e `role="status"` (sucesso), para leitores de tela, e o campo de nome ganhou `autocomplete="name"`.
+- `auth/autenticar.php`: depois do login, manda para `admin/painelProdutos.php`.
+
+##### Alterado
+
+- `config/conexao.php`: as variáveis da conexão passaram a se chamar `$dbName`, `$dbUser` e `$dbSenha` e são apagadas com `unset()` logo depois de conectar, para não se misturarem com as variáveis das páginas.
+- `include/cabecalho.php`:
+  - o título da aba vem da variável `$titulo`, definida antes do `include` (se não existir, fica "Vitta Sports", com o operador `??`);
+  - o CSS é carregado pelo caminho absoluto `/assets/css/style.css`, que funciona também nas páginas dentro de `admin/`.
+
+##### Criado
+
+- `admin/painelProdutos.php`: painel protegido por `exigirAdmin()`. Busca os produtos com o nome da categoria (`INNER JOIN`) e mostra uma tabela com nome, categoria, preço, estoque e os links "Editar" e "Excluir", além do botão "Novo produto".
+- `admin/form.php`: o mesmo formulário serve para cadastrar e para editar. Se a URL tiver um `id` válido (`filter_input()` com `FILTER_VALIDATE_INT`), carrega o produto para editar; senão, começa com os campos vazios. As categorias do `<select>` vêm do banco, já marcando a do produto com `selected`. O formulário envia por `POST` para `salvar.php`, com o `id` em um campo escondido (`type="hidden"`).
+- `admin/salvar.php` e `admin/excluir.php`: arquivos criados, ainda vazios.
+
+##### Pendente
+
+- `admin/painelProdutos.php`: a consulta usa `p.id_catrgoria`, mas a coluna se chama `id_categoria`. Do jeito que está, o painel dá erro no banco.
+- Escrever o `admin/salvar.php` (`INSERT` quando o `id` for 0, `UPDATE` quando não for) e o `admin/excluir.php`.
+- `include/cabecalho.php`: os links do menu são relativos (`index.php`, `login.php`...), então dentro de `admin/` eles apontam para `admin/index.php`, que não existe. Precisam começar com `/`, como o link do CSS.
+- `cadastro.php`: a mensagem de sucesso ainda usa a classe `auth-sucesso`, mas no CSS ela se chama `auth-success`.
+- `auth/autenticar.php` manda todo mundo para o painel. Um cliente é barrado pelo `exigirAdmin()` e volta para o login sem nenhum aviso; ele deveria ir para outra página.
+- `banco.sql`: os produtos de exemplo ainda usam imagens em `assets/img/`, e o `select * from usuarios;` de teste continua no meio do script.
+- Criar a página `loja.php`.
+
 ## Como executar
 
 **HTML e CSS:** abra o arquivo `index.html` da aula no navegador (ou use a extensão Live Server do VS Code).
@@ -310,6 +347,14 @@ O **Projeto Vitta Sports** também precisa do MySQL, com o banco `vita_sports` c
 
 ```bash
 php -S localhost:8000 -t Projeto_vita_sports
+```
+
+O servidor precisa ser iniciado com `-t Projeto_vita_sports`, porque o CSS é carregado pelo caminho `/assets/css/style.css`, a partir da raiz do site.
+
+Todo usuário criado pelo `cadastro.php` é `cliente`. Para entrar na área de administração, cadastre uma conta e transforme-a em administrador direto no banco:
+
+```sql
+UPDATE usuarios SET tipo_usuario = 'admin' WHERE email = 'seu@email.com';
 ```
 
 Algumas atividades da Aula 17 usam `array_last()`, que precisa do PHP 8.5 ou mais recente.
